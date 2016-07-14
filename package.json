@@ -9,7 +9,7 @@
 
     "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev" ,
     "build": "webpack --config webpack.prod",
-    "build:production": "webpack -p --config webpack.prod",
+    "build:prod": "webpack -p --config webpack.prod",
 
     "lint": "eslint src/ || true",
     "lint:travis": "eslint src/",
@@ -44,32 +44,37 @@
     "karma-webpack": "^1.5.1",
     "mocha": "^2.3.0",
 
-    "node-sass": "^3.3.3",
-    "raw-loader": "^0.5.1",
-    "css-loader": "^0.21.0",
-    "sass-loader": "^3.0.0",
-    "script-loader": "^0.6.1",
-    "style-loader": "^0.13.0",
-    "url-loader": "^0.5.6",
-    "file-loader": "^0.8.4",
+    "node-sass": "*",
+    "raw-loader": "*",
+    "css-loader": "*",
+    "sass-loader": "*",
+    "script-loader": "*",
+    "style-loader": "*",
+    "url-loader": "*",
+    "file-loader": "*",
 
     "webpack": "2.1.0-beta.15",
-    "webpack-merge": "^0.14.0",
+    "webpack-merge": "*",
     "webpack-dev-server": "*",
-    "html-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "*"
   },
   "dependencies": {
-    "angular": "1.5.7",
-    "angular-sanitize": "1.5.7",
-    "angular-schema-form": "0.8.13",
-    "angular-schema-form-bootstrap": "0.2.0",
-    "angular-material": "*",
-    "angular-ui-bootstrap": "1.1.2",
-    "angular-ui-router": "0.2.18",
+    "angular": "1.x.x",
+    "angular-router": "2.x.x",
+    "angular-sanitize": "1.x.x",
+    "angular-animate": "1.x.x",
 
-    "bootstrap": "3.3.6",
-    "jquery": "2.2.4",
-    "lodash": "*",
+    "angular-schema-form": "0.x.x",
+    "angular-schema-form-bootstrap": "0.x.x",
+    "angular-material": "*",
+
+    "angular-ui-bootstrap": "1.x.x",
+    "angular-ui-router": "0.x.x",
+
+    "bootstrap": "3.x.x",
+    "jquery": "2.x.x",
+    "lodash": "4.x.x",
+
     "objectpath": "1.2.1",
     "tv4": "*"
   }
