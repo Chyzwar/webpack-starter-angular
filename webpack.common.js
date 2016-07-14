@@ -1,8 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var extractCSS = new ExtractTextPlugin('styles/[name].vendor.css');
-var extractSCSS = new ExtractTextPlugin('styles/[name].app.css');
+var extractCSS = new ExtractTextPlugin('styles/vendor.css');
+var extractSCSS = new ExtractTextPlugin('styles/app.css');
 
 module.exports = {
   entry: {
@@ -25,14 +25,14 @@ module.exports = {
           'style-loader',
           'css-loader?sourceMap',
           'sass-loader?sourceMap'
-          )
+        )
       },
       {
         test: /\.css$/,
         loader: extractCSS.extract(
           'style-loader',
           'css-loader?sourceMap'
-          )
+        )
       },
       {
         test: /\.eot$/,
@@ -62,15 +62,18 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw',
       },
-      {
-        test: /\.jade$/,
-        loader: 'jade-loader',
-      },
     ],
   },
   plugins: [
+    /**
+     * Register extract CSS and SCSS plugins
+     */
     extractCSS,
     extractSCSS,
+    /**
+     * HtmlWebpackPlugin configuration
+     * @type {String}
+     */
     new HtmlWebpackPlugin({
       title: 'Webpack Starter Angular',
       template: 'src/index.html',
