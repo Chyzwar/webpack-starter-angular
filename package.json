@@ -29,8 +29,7 @@
   "devDependencies": {
     "angular-mocks": "~1.5.0",
 
-    "eslint": "*",
-    "eslint-plugin-react": "*",
+    "eslint": "2.x.x",
     "eslint-config-airbnb": "*",
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-import": "*",
@@ -52,24 +51,26 @@
     "style-loader": "*",
     "url-loader": "*",
     "file-loader": "*",
+    "jade": "^1.11.0",
+    "jade-loader": "*",
 
-    "webpack": "2.1.0-beta.15",
+    "webpack": "^2.1.0-beta",
     "webpack-merge": "*",
     "webpack-dev-server": "*",
-    "html-webpack-plugin": "*"
+    "html-webpack-plugin": "*",
+    "extract-text-webpack-plugin": "^2.0.0-beta"
   },
   "dependencies": {
     "angular": "1.x.x",
-    "angular-router": "2.x.x",
+    "angular-route": "1.x.x",
     "angular-sanitize": "1.x.x",
     "angular-animate": "1.x.x",
-
+    "angular-aria": "1.x.x",
+    "angular-ui-router": "*",
+    "angular-material": "*",
     "angular-schema-form": "0.x.x",
     "angular-schema-form-bootstrap": "0.x.x",
-    "angular-material": "*",
-
     "angular-ui-bootstrap": "1.x.x",
-    "angular-ui-router": "0.x.x",
 
     "bootstrap": "3.x.x",
     "jquery": "2.x.x",

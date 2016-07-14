@@ -1,11 +1,15 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var extractCSS = new ExtractTextPlugin('styles/[name].vendor.css');
+var extractSCSS = new ExtractTextPlugin('styles/[name].app.css');
 
 module.exports = {
   entry: {
     client: './src/app.js',
   },
   output: {
-    path: './build/',
+    path: './build',
     filename: 'client.js',
   },
   resolve: {
@@ -17,18 +21,18 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loaders: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', query: { modules: true } },
-          { loader: 'sass-loader' },
-        ],
+        loader: extractSCSS.extract(
+          'style-loader',
+          'css-loader?sourceMap',
+          'sass-loader?sourceMap'
+          )
       },
       {
         test: /\.css$/,
-        loaders: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', query: { modules: true } },
-        ],
+        loader: extractCSS.extract(
+          'style-loader',
+          'css-loader?sourceMap'
+          )
       },
       {
         test: /\.eot$/,
@@ -65,6 +69,8 @@ module.exports = {
     ],
   },
   plugins: [
+    extractCSS,
+    extractSCSS,
     new HtmlWebpackPlugin({
       title: 'Webpack Starter Angular',
       template: 'src/index.html',

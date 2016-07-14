@@ -28,6 +28,4 @@
   "extends": "airbnb",
 
   "rules": {},
-
-  "plugins": ["react"],
 }
