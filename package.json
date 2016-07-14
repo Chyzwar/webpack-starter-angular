@@ -7,9 +7,9 @@
     "analyze": "webpack --json | webpack-bundle-size-analyzer",
     "clean": "npm cache clean && rimraf -- node_modules doc coverage build",
 
-    "start": "webpack-dev-server --inline --port 3000 --content-base build/ --config webpack.dev",
-    "build": "export NODE_ENV=dev && webpack",
-    "build:production": "export NODE_ENV=prod && webpack -p",
+    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev" ,
+    "build": "webpack --config webpack.prod",
+    "build:production": "webpack -p --config webpack.prod",
 
     "lint": "eslint src/ || true",
     "lint:travis": "eslint src/",
@@ -24,7 +24,7 @@
     "npm",
     "angular"
   ],
-  "author": "Timo Stollenwerk",
+  "author": "Marcin Kopacz",
   "license": "MIT",
   "devDependencies": {
     "angular-mocks": "~1.5.0",
@@ -52,15 +52,11 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "file-loader": "^0.8.4",
-    "jade": "^1.11.0",
-    "jade-loader": "^0.7.1",
-
-    "html-webpack-plugin": "^1.7.0",
-
 
     "webpack": "2.1.0-beta.15",
     "webpack-merge": "^0.14.0",
-    "webpack-dev-server": "*"
+    "webpack-dev-server": "*",
+    "html-webpack-plugin": "^1.7.0",
   },
   "dependencies": {
     "angular": "1.5.7",
@@ -70,10 +66,11 @@
     "angular-material": "*",
     "angular-ui-bootstrap": "1.1.2",
     "angular-ui-router": "0.2.18",
+
     "bootstrap": "3.3.6",
     "jquery": "2.2.4",
-    "lodash": "4.6.1",
+    "lodash": "*",
     "objectpath": "1.2.1",
-    "tv4": "1.2.7"
+    "tv4": "*"
   }
 }
