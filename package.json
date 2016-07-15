@@ -56,7 +56,9 @@
     "webpack-merge": "*",
     "webpack-dev-server": "*",
     "html-webpack-plugin": "*",
+    "ng-annotate-webpack-plugin": "*",
     "extract-text-webpack-plugin": "^2.0.0-beta"
+
   },
   "dependencies": {
     "angular": "1.x.x",

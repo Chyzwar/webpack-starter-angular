@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var extractCSS = new ExtractTextPlugin('styles/vendor.css');
@@ -74,6 +75,9 @@ module.exports = {
      * HtmlWebpackPlugin configuration
      * @type {String}
      */
+    new ngAnnotatePlugin({
+      add: true,
+    })
     new HtmlWebpackPlugin({
       title: 'Webpack Starter Angular',
       template: 'src/index.html',
