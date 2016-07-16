@@ -1,5 +1,5 @@
-import template from './new.html';
-import controller from './new.controller';
+import template from './login.html';
+import controller from './login.controller';
 
 let newComponent = {
   restrict: 'E',

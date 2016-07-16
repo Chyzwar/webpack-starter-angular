@@ -2,8 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var extractCSS = new ExtractTextPlugin('styles/vendor.css');
-var extractSCSS = new ExtractTextPlugin('styles/app.css');
+var extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.css' });
+var extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.css' });
 
 module.exports = {
   entry: {
@@ -22,18 +22,16 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: extractSCSS.extract(
-          'style-loader',
-          'css-loader?sourceMap',
-          'sass-loader?sourceMap'
-        )
+        loader: extractSCSS.extract([
+          { loader: 'css-loader', query: { sourceMap: true }},
+          { loader: 'sass-loader', query: { sourceMap: true }},
+        ])
       },
       {
         test: /\.css$/,
-        loader: extractCSS.extract(
-          'style-loader',
-          'css-loader?sourceMap'
-        )
+        loader: extractCSS.extract([
+          { loader: 'css-loader', query: { sourceMap: true }},
+        ])
       },
       {
         test: /\.eot$/,
@@ -72,12 +70,14 @@ module.exports = {
     extractCSS,
     extractSCSS,
     /**
-     * HtmlWebpackPlugin configuration
-     * @type {String}
+     * Angular annotate dependancy injection.
      */
     new ngAnnotatePlugin({
       add: true,
-    })
+    }),
+    /**
+     * HtmlWebpackPlugin configuration
+     */
     new HtmlWebpackPlugin({
       title: 'Webpack Starter Angular',
       template: 'src/index.html',

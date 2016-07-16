@@ -1,6 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import newComponent from './new.component';
+import newComponent from './login.component';
 
 let newModule = angular.module('new', [
   uiRouter
