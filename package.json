@@ -7,7 +7,7 @@
     "analyze": "webpack --json | webpack-bundle-size-analyzer",
     "clean": "npm cache clean && rimraf -- node_modules doc coverage build",
 
-    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev" ,
+    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev",
     "build": "webpack --config webpack.prod",
     "build:prod": "webpack -p --config webpack.prod",
 

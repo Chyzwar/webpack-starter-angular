@@ -1,11 +1,12 @@
-const path = require('path');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+
 const commonConfig = require('./webpack.common.js');
 
-const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-
-
+/**
+ * Merge common config with prod specific configuration
+ * @type {object}
+ */
 module.exports = webpackMerge(commonConfig, {
 
   /**
@@ -39,7 +40,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-path
      */
-    path: path.join(__dirname, '..', 'build'),
+    path: './build',
 
     /**
      * Specifies the name of each output file on disk.
@@ -82,7 +83,7 @@ module.exports = webpackMerge(commonConfig, {
      * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
      * See: https://github.com/webpack/docs/wiki/optimization#deduplication
      */
-    new DedupePlugin(),
+    new webpack.optimize.DedupePlugin(),
 
     /**
      * Plugin: UglifyJsPlugin
@@ -91,29 +92,30 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
-    // NOTE: To debug prod builds uncomment //debug lines and comment //prod lines
-    new UglifyJsPlugin({
-      beautify: true, //debug
-      mangle: false, //debug
-      dead_code: false, //debug
-      unused: false, //debug
-      deadCode: false, //debug
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      comments: false,
+      unused: false,
+      deadCode: false,
       compress: {
         screw_ie8: true,
         keep_fnames: true,
         drop_debugger: false,
         dead_code: false,
         unused: false
-      }, // debug
-      comments: true, //debug
-
-
-      beautify: false, //prod
-      mangle: { screw_ie8 : true }, //prod
-      compress: { screw_ie8: true }, //prod
-      comments: false //prod
+      },
+      mangle: {
+        screw_ie8 : true
+      },
+    }),
+    /**
+     * Plugin: DefinePlugin
+     * Define variables, strigify in source code
+     * @type {String}
+     */
+    new webpack.DefinePlugin({
+      NODE_ENV: 'production'
     })
-
   ]
 
 });
