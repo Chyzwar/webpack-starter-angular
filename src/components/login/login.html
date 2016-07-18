@@ -1,5 +1,25 @@
-<navbar></navbar>
-<h1>You can find my template inside {{ vm.name }}.html</h1>
-<section>
-  New Component Example.
-</section>
+<div layout="column" layout-align="center center" layout-fill="layout-fill">
+  <div layout="column" class="">
+    <md-toolbar>
+      <h2 class="md-toolbar-tools"><span>Login</span></h2>
+    </md-toolbar>
+    <md-content layout="column" class="md-padding">
+      <form name="userForm">
+        <md-input-container class="md-block">
+          <label>UserName</label>
+          <input ng-model="$ctrl.user.userName">
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input ng-model="$ctrl.user.password" type="password">
+        </md-input-container>
+      </form>
+
+      <div layout="row" layout-align="center center">
+        <md-button class="md-raised md-primary" ng-click="$ctrl.login()">Login</md-button>
+        <div flex="flex"></div>
+        <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
+      </div>
+    </md-content>
+  </div>
+</div>

@@ -12,7 +12,10 @@ import uiGrid from 'angular-ui-grid';
 import AppComponent from './app.component';
 import Common from './common/common';
 import Components from './components/components';
-console.log(ngMaterial);
+
+/**
+ * Top level module initalisation
+ */
 angular.module('ng-app', [
   ngAnimate,
   ngAria,
@@ -34,10 +37,4 @@ angular.module('ng-app', [
    * Configuration for ngMaterial
    */
    $mdThemingProvider.theme('default');
-
-    // .primaryPalette('blue')
-    // .accentPalette('green')
-    // .warnPalette('yellow');
-
-
 });

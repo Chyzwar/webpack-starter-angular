@@ -1,19 +1,19 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import newComponent from './login.component';
 
-let newModule = angular.module('new', [
+import loginComponent from './login.component';
+
+let loginModule = angular.module('app.login', [
   uiRouter
 ])
-
 .config(($stateProvider) => {
   $stateProvider
-    .state('new', {
-      url: '/new',
-      template: '<new></new>'
+    .state('login', {
+      url: '/login',
+      template: '<login></login>'
     });
 })
+.component('login', loginComponent);
 
-.component('new', newComponent);
 
-export default newModule;
+export default loginModule;
