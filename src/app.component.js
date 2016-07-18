@@ -1,10 +1,7 @@
 import template from './app.html';
 
-let appComponent = () => {
-  return {
-    template,
-    restrict: 'E'
-  };
+let appComponent = {
+  template,
 };
 
 export default appComponent;

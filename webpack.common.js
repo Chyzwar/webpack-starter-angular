@@ -2,8 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.css' });
-var extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.css' });
+const extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.css' });
+const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.css' });
 
 module.exports = {
   entry: {
@@ -23,15 +23,15 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: extractSCSS.extract([
-          { loader: 'css-loader', query: { sourceMap: true }},
-          { loader: 'sass-loader', query: { sourceMap: true }},
-        ])
+          { loader: 'css-loader', query: { sourceMap: true } },
+          { loader: 'sass-loader', query: { sourceMap: true } },
+        ]),
       },
       {
         test: /\.css$/,
         loader: extractCSS.extract([
-          { loader: 'css-loader', query: { sourceMap: true }},
-        ])
+          { loader: 'css-loader', query: { sourceMap: true } },
+        ]),
       },
       {
         test: /\.eot$/,

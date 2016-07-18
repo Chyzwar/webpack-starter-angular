@@ -64,8 +64,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
      */
-    chunkFilename: '[id].[chunkhash].chunk.js'
-
+    chunkFilename: '[id].[chunkhash].chunk.js',
   },
 
   /**
@@ -102,10 +101,10 @@ module.exports = webpackMerge(commonConfig, {
         keep_fnames: true,
         drop_debugger: false,
         dead_code: false,
-        unused: false
+        unused: false,
       },
       mangle: {
-        screw_ie8 : true
+        screw_ie8: true,
       },
     }),
     /**
@@ -114,8 +113,7 @@ module.exports = webpackMerge(commonConfig, {
      * @type {String}
      */
     new webpack.DefinePlugin({
-      NODE_ENV: 'production'
-    })
-  ]
-
+      NODE_ENV: 'production',
+    }),
+  ],
 });
