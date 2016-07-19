@@ -1,10 +1,17 @@
 import angular from 'angular';
-import Navbar from './navbar/navbar';
-import Hero from './hero/hero';
-import User from './user/user';
 
-export default angular.module('app.common', [
-  Navbar.name,
-  Hero.name,
-  User.name
+import appDirectives from './directives/directives';
+import appServices from './services/services';
+import appFilters from './filters/filters';
+
+/**
+ * Common funnctionality across app.
+ * @type {Module}
+ */
+const appCommons = angular.module('appCommon', [
+  appDirectives,
+  appServices,
+  appFilters,
 ]);
+
+export default appCommons.name;

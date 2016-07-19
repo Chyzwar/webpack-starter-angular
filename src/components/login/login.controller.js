@@ -1,5 +1,5 @@
 class LoginController {
-  constructor() {
+  constructor($state) {
     this.name = 'Login Component';
     this.user = {
       userName: '',
@@ -7,8 +7,12 @@ class LoginController {
     };
   }
 
-  login(){
+  login() {
     console.log(this.user);
+  }
+
+  forgotten() {
+
   }
 }
 

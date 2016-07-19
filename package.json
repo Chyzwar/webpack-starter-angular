@@ -66,10 +66,11 @@
     "angular-animate": "1.x.x",
     "angular-aria": "1.x.x",
     "angular-material": "*",
+    "angular-moment": "*",
 
     "angular-ui-router": "*",
-    "angular-ui-grid": "*",
+    "angular-ui-grid": "3.x.x",
 
-    "lodash": "4.x.x"
+    "lodash": "4.x.x",
   }
 }
