@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.css' });
-const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.css' });
+const extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
+const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' });
 
 module.exports = {
   entry: {
@@ -14,7 +14,7 @@ module.exports = {
   },
   output: {
     path: './build',
-    filename: 'client.js',
+    filename: 'js/[name].[hash].js',
   },
   resolve: {
     modules: ['node_modules'],
@@ -100,7 +100,7 @@ module.exports = {
      */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'vendor.js'
+      filename: 'js/vendor.[hash].js'
     }),
   ],
   cache: true,

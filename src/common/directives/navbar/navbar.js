@@ -8,4 +8,4 @@ const navbarModule = angular.module('navbar', [
 
 .directive('navbar', navbarComponent);
 
-export default navbarModule;
+export default navbarModule.name;

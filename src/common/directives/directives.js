@@ -3,7 +3,7 @@ import angular from 'angular';
 import Navbar from './navbar/navbar';
 
 const appDirectives = angular.module('appDirectives', [
-  Navbar.name,
+  Navbar,
 ]);
 
 export default appDirectives.name;

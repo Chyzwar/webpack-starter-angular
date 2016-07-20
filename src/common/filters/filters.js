@@ -2,7 +2,7 @@ import angular from 'angular';
 
 const appFilters = angular.module('appFilters', []);
 
-// appFilters.filters();
+// appFilters.filters('');
 
 
 export default appFilters.name;

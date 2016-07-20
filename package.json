@@ -8,8 +8,9 @@
     "clean": "npm cache clean && rimraf -- doc coverage build",
 
     "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev",
-    "build": "webpack --config webpack.prod",
-    "build:prod": "webpack -p --config webpack.prod",
+    "start:build": "",
+    "build": "npm run clean && webpack --config webpack.prod",
+    "build:prod": "npm run clean &&  webpack -p --config webpack.prod",
 
     "lint": "eslint src/ || true",
     "lint:travis": "eslint src/",
@@ -22,7 +23,8 @@
     "bundle",
     "webpack",
     "npm",
-    "angular"
+    "angular",
+    "es2015"
   ],
   "author": "Marcin Kopacz",
   "license": "MIT",
@@ -66,7 +68,6 @@
     "angular-aria": "1.x.x",
     "angular-material": "*",
     "angular-moment": "^1.0.0-beta",
-    "angular-filter": "*",
 
     "angular-ui-router": "^1.0.0-beta",
     "angular-ui-grid": "3.x.x",

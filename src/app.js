@@ -8,7 +8,6 @@ import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 import ngMoment from 'angular-moment';
-import ngFilter from 'angular-filter';
 
 import uiRouter from 'angular-ui-router';
 import uiGrid from 'angular-ui-grid';
@@ -24,7 +23,6 @@ angular.module('ng-app', [
   ngAnimate,
   ngAria,
   ngMaterial,
-  // ngFilter,
   ngMoment.name,
 
   uiRouter,
@@ -33,7 +31,7 @@ angular.module('ng-app', [
   appCommon,
   appComponents,
 ])
-.directive('app', AppComponent)
+.component('app', AppComponent)
 
 /**
  * App configuaration,

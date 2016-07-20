@@ -5,7 +5,7 @@ import appServices from './services/services';
 import appFilters from './filters/filters';
 
 /**
- * Common funnctionality across app.
+ * Common functionality across app.
  * @type {Module}
  */
 const appCommons = angular.module('appCommon', [
