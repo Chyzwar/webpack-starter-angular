@@ -6,4 +6,4 @@ const appDirectives = angular.module('appDirectives', [
   Navbar.name,
 ]);
 
-export default appDirectives;
+export default appDirectives.name;

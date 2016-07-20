@@ -8,5 +8,4 @@ const appComponents = angular.module('appComponents', [
   Login.name
 ]);
 
-
 export default appComponents.name;

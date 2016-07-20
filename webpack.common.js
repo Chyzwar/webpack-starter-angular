@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -8,6 +10,7 @@ const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.css' });
 module.exports = {
   entry: {
     client: './src/app.js',
+    vendor: ['angular', 'moment'],
   },
   output: {
     path: './build',
@@ -65,12 +68,15 @@ module.exports = {
   },
   plugins: [
     /**
-     * Register extract CSS and SCSS plugins
+     * Register extract CSS and SCSS plugins,
+     * Assume that application style will be written on sass
+     * Vandor CSS like ui-grid will be linked as CSS
      */
     extractCSS,
     extractSCSS,
     /**
-     * Angular annotate dependancy injection.
+     * Angular annotate for dependancy injection.
+     * ngAnnotate automaticly add annonations in $inject
      */
     new ngAnnotatePlugin({
       add: true,
@@ -88,6 +94,13 @@ module.exports = {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
       },
+    }),
+    /**
+     * Create common chunk for vendor src.
+     */
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
     }),
   ],
   cache: true,

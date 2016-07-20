@@ -1,20 +1,21 @@
 import 'angular-material/angular-material.css';
 import 'angular-ui-grid/ui-grid.css';
 
-import moment from 'moment';
+import 'moment';
 
 import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
-import ngMoment from 'angular-moment'
+import ngMoment from 'angular-moment';
+import ngFilter from 'angular-filter';
 
 import uiRouter from 'angular-ui-router';
 import uiGrid from 'angular-ui-grid';
 
 import AppComponent from './app.component';
-import common from './common/common';
-import components from './components/components';
+import appCommon from './common/common';
+import appComponents from './components/components';
 
 /**
  * Top level module initalisation
@@ -23,13 +24,14 @@ angular.module('ng-app', [
   ngAnimate,
   ngAria,
   ngMaterial,
-  ngMoment,
+  // ngFilter,
+  ngMoment.name,
 
   uiRouter,
   'ui.grid', //https://github.com/angular-ui/ui-grid/issues/5558
 
-  common,
-  components,
+  appCommon,
+  appComponents,
 ])
 .directive('app', AppComponent)
 

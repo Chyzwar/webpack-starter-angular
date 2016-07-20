@@ -54,11 +54,10 @@
 
     "webpack": "^2.1.0-beta",
     "webpack-merge": "*",
-    "webpack-dev-server": "*",
+    "webpack-dev-server": "^2.0.0-beta",
     "html-webpack-plugin": "*",
     "ng-annotate-webpack-plugin": "*",
     "extract-text-webpack-plugin": "^2.0.0-beta"
-
   },
   "dependencies": {
     "angular": "1.x.x",
@@ -66,11 +65,12 @@
     "angular-animate": "1.x.x",
     "angular-aria": "1.x.x",
     "angular-material": "*",
-    "angular-moment": "*",
+    "angular-moment": "^1.0.0-beta",
+    "angular-filter": "*",
 
-    "angular-ui-router": "*",
+    "angular-ui-router": "^1.0.0-beta",
     "angular-ui-grid": "3.x.x",
 
-    "lodash": "4.x.x",
+    "lodash": "4.x.x"
   }
 }

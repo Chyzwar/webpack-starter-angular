@@ -1,6 +1,6 @@
 import template from './app.html';
 
-let appComponent = {
+const appComponent = {
   template,
 };
 

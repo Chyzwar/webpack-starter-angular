@@ -12,8 +12,8 @@ const appServices = angular.module('appServices', []);
 /**
  * Register Serivices in module
  */
-appServices.services('Auth', Auth);
-appServices.services('User', User);
+appServices.service('Auth', Auth);
+appServices.service('User', User);
 
 
 export default appServices.name;
