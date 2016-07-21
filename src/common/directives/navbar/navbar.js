@@ -1,11 +1,15 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import navbarComponent from './navbar.component';
+import template from './navbar.html';
+import controller from './navbar.controller';
 
-const navbarModule = angular.module('navbar', [
-  uiRouter
-])
+const navbarDirective = function () {
+  return {
+    restrict: 'E',
+    scope: {},
+    template,
+    controller,
+    controllerAs: "$ctrl",
+    bindToController: true
+  };
+};
 
-.directive('navbar', navbarComponent);
-
-export default navbarModule.name;
+export default navbarDirective;

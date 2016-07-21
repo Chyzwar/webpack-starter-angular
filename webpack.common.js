@@ -10,7 +10,7 @@ const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' })
 module.exports = {
   entry: {
     client: './src/app.js',
-    vendor: ['angular', 'moment'],
+    vendor: ['angular', 'angular-animate', 'angular-aria', 'angular-material', 'moment'],
   },
   output: {
     path: './build',

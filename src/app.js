@@ -1,9 +1,9 @@
 import 'angular-material/angular-material.css';
 import 'angular-ui-grid/ui-grid.css';
 
-import 'moment';
-
+import moment from 'moment';
 import angular from 'angular';
+
 import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';

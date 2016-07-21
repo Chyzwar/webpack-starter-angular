@@ -64,7 +64,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
      */
-    chunkFilename: '[id].[chunkhash].chunk.js',
+    chunkFilename: '[id].[hash].chunk.js',
   },
 
   /**
@@ -87,8 +87,8 @@ module.exports = webpackMerge(commonConfig, {
     /**
      * Plugin: UglifyJsPlugin
      * Description: Minimize all JavaScript output of chunks.
-     * Loaders are switched into minimizing mode.
      *
+     * UglifyJs is broken for es6: https://github.com/mishoo/UglifyJS2/issues/448
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
      */
     new webpack.optimize.UglifyJsPlugin({

@@ -1,6 +1,7 @@
 import angular from 'angular';
 
 import appDirectives from './directives/directives';
+import appModules from './modules/modules';
 import appServices from './services/services';
 import appFilters from './filters/filters';
 
@@ -10,6 +11,7 @@ import appFilters from './filters/filters';
  */
 const appCommons = angular.module('appCommon', [
   appDirectives,
+  appModules,
   appServices,
   appFilters,
 ]);
