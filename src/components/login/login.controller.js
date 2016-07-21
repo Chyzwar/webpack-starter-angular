@@ -11,7 +11,7 @@ class LoginController {
     console.log(this.user);
   }
 
-  forgotten() {
+  reset() {
 
   }
 }

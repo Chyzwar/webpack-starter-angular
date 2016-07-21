@@ -66,7 +66,7 @@
     "angular-sanitize": "1.x.x",
     "angular-animate": "1.x.x",
     "angular-aria": "1.x.x",
-    "angular-material": "*",
+    "angular-material": "1.x.x",
     "angular-moment": "^1.0.0-beta",
 
     "angular-ui-router": "^1.0.0-beta",

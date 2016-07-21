@@ -7,6 +7,10 @@ import ngMaterial from 'angular-material';
 
 import Navbar from './navbar/navbar';
 
+/**
+ * Initialise module with dependancies
+ * @type {Module}
+ */
 const appDirectives = angular.module('appDirectives', [
   ngAnimate,
   ngAria,

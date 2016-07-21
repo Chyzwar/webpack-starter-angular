@@ -17,7 +17,7 @@ import appCommon from './common/common';
 import appComponents from './components/components';
 
 /**
- * Top level module initalisation
+ * Top level, application module initalisation
  */
 angular.module('ng-app', [
   ngAnimate,

@@ -33,27 +33,40 @@ module.exports = {
       {
         test: /\.css$/,
         loader: extractCSS.extract([
-          { loader: 'css-loader', query: { sourceMap: true } },
+          { loader: 'css-loader',
+          query: {
+            sourceMap: true,
+            minimize: true,
+          }
+        },
         ]),
       },
       {
         test: /\.eot$/,
-        loader: 'file',
+        loader: 'url',
+        query: {
+          limit: 65000,
+          name: 'fonts/[name].[hash].[ext]',
+          minetype:'application/vnd.ms-fontobject'
+        }
       },
       {
-        test: /\.woff2$/,
+        test: /\.(woff|woff2)$/,
         loader: 'url',
-        query: { limit: 10000, mimetype: 'application/font-woff' },
-      },
-      {
-        test: /\.woff$/,
-        loader: 'url',
-        query: { limit: 10000, mimetype: 'application/font-woff' },
+        query: {
+          limit: 65000,
+          name: 'fonts/[name].[hash].[ext]',
+          mimetype: 'application/font-woff',
+        },
       },
       {
         test: /\.ttf$/,
         loader: 'url',
-        query: { limit: 10000, minetype: 'application/octet-stream' },
+        query: {
+          limit: 65000,
+          name: 'fonts/[name].[hash].[ext]',
+          minetype: 'application/x-font-ttf'
+        },
       },
       {
         test: /\.svg$/,

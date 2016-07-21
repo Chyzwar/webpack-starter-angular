@@ -1,6 +1,9 @@
 class NavbarController {
-  constructor() {
+  constructor($mdSidenav) {
     this.name = 'navbar';
+  }
+  openLeftMenu(){
+    $mdSidenav('left').toggle();
   }
 }
 
