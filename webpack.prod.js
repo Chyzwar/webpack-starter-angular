@@ -27,46 +27,6 @@ module.exports = webpackMerge(commonConfig, {
    */
   devtool: 'source-map',
 
-
-  /**
-   * Options affecting the output of the compilation.
-   *
-   * See: http://webpack.github.io/docs/configuration.html#output
-   */
-  output: {
-
-    /**
-     * The output directory as absolute path (required).
-     *
-     * See: http://webpack.github.io/docs/configuration.html#output-path
-     */
-    path: './build/',
-
-    /**
-     * Specifies the name of each output file on disk.
-     * IMPORTANT: You must not specify an absolute path here!
-     *
-     * See: http://webpack.github.io/docs/configuration.html#output-filename
-     */
-    filename: 'js/[name].[hash].js',
-
-    /**
-     * The filename of the SourceMaps for the JavaScript files.
-     * They are inside the output.path directory.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
-     */
-    sourceMapFilename: 'js/[name].[hash].map',
-
-    /**
-     * The filename of non-entry chunks as relative path
-     * inside the output.path directory.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
-     */
-    chunkFilename: '[id].[hash].chunk.js',
-  },
-
   /**
    * Add additional plugins to the compiler.
    *
@@ -84,19 +44,27 @@ module.exports = webpackMerge(commonConfig, {
      */
     new webpack.optimize.DedupePlugin(),
 
+    new webpack.optimize.AggressiveMergingPlugin({
+      minSizeReduce: 1.5,
+      moveToParents: true
+    }),
     /**
      * Plugin: UglifyJsPlugin
      * Description: Minimize all JavaScript output of chunks.
      *
      * UglifyJs is broken for es6: https://github.com/mishoo/UglifyJS2/issues/448
      * See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+     *
+     * Lit of options for compress:
+     * See: https://github.com/mishoo/UglifyJS2#usage
      */
     new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      comments: false,
-      unused: false,
-      deadCode: false,
       compress: {
+        warnings: true,
+        passes: 2,
+        drop_console:true
+        beautify: false,
+        comments: false,
         screw_ie8: true,
         keep_fnames: true,
         drop_debugger: false,

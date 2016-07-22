@@ -10,11 +10,28 @@ const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' })
 module.exports = {
   entry: {
     client: './src/app.js',
-    vendor: ['angular', 'angular-animate', 'angular-aria', 'angular-material', 'moment'],
+    common: ['angular', 'angular-ui-router', 'angular-animate', 'angular-aria', 'angular-material']
   },
   output: {
-    path: './build',
+    /**
+     * The output directory as absolute path (required).
+     *
+     * See: http://webpack.github.io/docs/configuration.html#output-path
+     */
+    path: './build/',
+    /**
+     * Specifies the name of each output file on disk.
+     *
+     * See: http://webpack.github.io/docs/configuration.html#output-filename
+     */
     filename: 'js/[name].[hash].js',
+    /**
+     * The filename of the SourceMaps for the JavaScript files.
+     * They are inside the output.path directory.
+     *
+     * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
+     */
+    sourceMapFilename: 'js/[name].[hash].map',
   },
   resolve: {
     modules: ['node_modules'],
@@ -103,17 +120,21 @@ module.exports = {
       minify: {
         collapseWhitespace: true,
         removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
+        removeRedundantAttributes: false,
+        removeScriptTypeAttributes: false,
+        removeStyleLinkTypeAttributes: false,
       },
     }),
     /**
-     * Create common chunk for vendor src.
+     * All modules from common entry will be extracted, also
+     * If module is shared by 2 childrens it will get extracted to commons.
+     *
+     * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
      */
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'js/vendor.[hash].js'
+      name: 'common',
+      minChunks: 2,
+      filename: 'js/common.[hash].js'
     }),
   ],
   cache: true,
