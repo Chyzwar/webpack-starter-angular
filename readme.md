@@ -7,6 +7,9 @@ What included:
 - Webpack 2
 - ngMaterial, uiRouter, uiGrid
 - SASS
+- Testing 
+  - Karma
+  - Mocha
 
 
 Assumptions:
