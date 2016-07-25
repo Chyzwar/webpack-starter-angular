@@ -4,10 +4,10 @@ import Home from './home/home';
 import Login from './login/login';
 import Reset from './reset/reset';
 
-const appComponents = angular.module('appComponents', [
+const appPages = angular.module('appPages', [
   Home.name,
   Login.name,
   Reset.name,
 ]);
 
-export default appComponents.name;
+export default appPages.name;
