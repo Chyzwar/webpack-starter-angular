@@ -1,5 +1,6 @@
 class LoginController {
   constructor($state) {
+    this.$state = $state;
     this.name = 'Login Component';
     this.user = {
       userName: '',
@@ -12,7 +13,9 @@ class LoginController {
   }
 
   reset() {
-
+    this.$state.go('reset', {
+      email: this.user.userName
+    });
   }
 }
 
