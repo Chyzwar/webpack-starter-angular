@@ -7,9 +7,7 @@ import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 import ngMoment from 'angular-moment';
-
 import uiRouter from 'angular-ui-router';
-import uiSelect from 'angular-ui-select';
 
 import AppComponent from './app.component';
 import appCommon from './common/common';
@@ -23,9 +21,7 @@ angular.module('ng-app', [
   ngAria,
   ngMaterial,
   ngMoment.name,
-
   uiRouter,
-  uiSelect,
 
   appCommon,
   appComponents,

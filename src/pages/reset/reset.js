@@ -16,4 +16,4 @@ const resetModule = angular.module('app.reset', [
 .component('reset', resetComponent);
 
 
-export default resetModule;
+export default resetModule.name;

@@ -16,4 +16,4 @@ const loginModule = angular.module('app.login', [
 .component('login', loginComponent);
 
 
-export default loginModule;
+export default loginModule.name;

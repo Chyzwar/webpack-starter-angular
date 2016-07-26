@@ -15,6 +15,7 @@
   },
 
   "globals" : {
+    "NODE_ENV"   : false,
     "chai"       : false,
     "describe"   : false,
     "it"         : false,

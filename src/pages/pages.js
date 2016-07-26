@@ -5,9 +5,9 @@ import Login from './login/login';
 import Reset from './reset/reset';
 
 const appPages = angular.module('appPages', [
-  Home.name,
-  Login.name,
-  Reset.name,
+  Home,
+  Login,
+  Reset,
 ]);
 
 export default appPages.name;

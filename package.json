@@ -24,7 +24,8 @@
     "webpack",
     "npm",
     "angular",
-    "es2015"
+    "es2015",
+    "ES6",
   ],
   "author": "Marcin Kopacz",
   "license": "MIT",
@@ -72,8 +73,6 @@
     "angular-moment": "^1.0.0-beta",
 
     "angular-ui-router": "^1.0.0-beta",
-    "angular-ui-select": "*",
-
     "lodash": "4.x.x"
   }
 }

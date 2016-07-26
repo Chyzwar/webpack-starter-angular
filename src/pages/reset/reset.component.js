@@ -6,8 +6,8 @@ import controller from './reset.controller';
 const resetComponent = {
   template,
   controller,
-  controllerAs: "rc",
-  bindToController: true
+  controllerAs: 'rc',
+  bindToController: true,
 };
 
 export default resetComponent;
