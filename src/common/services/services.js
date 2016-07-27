@@ -3,6 +3,7 @@ import appConstants from '../constant';
 
 import Auth from './auth/auth';
 import User from './user/user';
+import Password from './password/Password';
 
 /**
  * appServices module will be a collection of reusable services
@@ -17,6 +18,7 @@ const appServices = angular.module('appServices', [
  */
 appServices.service('Auth', Auth);
 appServices.service('User', User);
+appServices.service('Password', Password);
 
 
 export default appServices.name;

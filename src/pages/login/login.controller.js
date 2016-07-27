@@ -1,7 +1,7 @@
 class LoginController {
-  constructor($state) {
+  constructor($state, Auth) {
     this.$state = $state;
-    this.name = 'Login Component';
+    this.Auth = Auth;
     this.user = {
       userName: '',
       password: '',
@@ -9,12 +9,20 @@ class LoginController {
   }
 
   login() {
-    console.log(this.user);
+    this.Auth.login(this.user).then(
+      () => {
+        this.$state.go('home');
+      }
+    ).catch(
+      (message) => {
+        this.message = message;
+      }
+    );
   }
 
   reset() {
     this.$state.go('reset', {
-      email: this.user.userName
+      userName: this.user.userName,
     });
   }
 }

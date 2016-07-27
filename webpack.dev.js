@@ -14,7 +14,7 @@ module.exports = webpackMerge(commonConfig, {
      * @type {String}
      */
     new webpack.DefinePlugin({
-      NODE_ENV: 'development',
+      NODE_ENV: "'development'",
     }),
-  ]
+  ],
 });

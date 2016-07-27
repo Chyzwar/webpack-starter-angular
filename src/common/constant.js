@@ -1,11 +1,13 @@
 import angular from 'angular';
 
+const env = NODE_ENV;
+
 /**
  * Function that set base URL based on env
  * @return {String}
  */
 function appUrls() {
-  switch (NODE_ENV) {
+  switch (env) {
     case 'development':
       return {
         api: 'localhost:6000',
@@ -30,7 +32,7 @@ const urls = appUrls();
  */
 const appConstants = angular.module('appConstants', []);
 
-appConstants.constants('BASE_URL', urls.base);
+appConstants.constants('BASE_URL', urls.base());
 appConstants.constants('API_URL', urls.api);
 
 export default appConstants.name;

@@ -2,30 +2,30 @@ class ResetLinkController {
   constructor(Password, $stateParams) {
     this.Password = Password;
 
-    /**
-     * userName or password
-     * @type {String}
-     */
-    this.user = '';
-
+    this.code = $stateParams.code;
+    this.user = $stateParams.user;
+    console.log($stateParams);
     this.message = {
       type: '',
       text: '',
     };
-  }
 
-  sendResetLink() {
-    this.Password.resetLink(
-      { user: this.user }
+    this.Password.validateLink(
+      { user: this.user, code: this.code }
     ).then(
       (message) => {
         this.message = message;
+        this.showPasswordForm = true;
       }
     ).catch(
       (message) => {
         this.message = message;
       }
     );
+  }
+
+  changePassword() {
+
   }
 }
 

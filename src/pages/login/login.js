@@ -10,7 +10,7 @@ const loginModule = angular.module('app.login', [
   $stateProvider
     .state('login', {
       url: '/login',
-      template: '<login></login>',
+      component: 'login',
     });
 })
 .component('login', loginComponent);

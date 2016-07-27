@@ -6,6 +6,7 @@ import controller from './reset.controller';
 const resetComponent = {
   template,
   controller,
+
   controllerAs: 'rc',
   bindToController: true,
 };

@@ -38,31 +38,6 @@ class Auth {
   }
 
   /**
-   * Make request to reset a password
-   * @param  {String} userName
-   * @return {Promise}
-   */
-  reset(userName) {
-    const deferred = this.$q.defer();
-
-    this.$http.update(this.url, userName).then(
-      () => {
-        deferred.response({
-          type: 'success',
-          text: 'Password resent link has been send, check your email',
-        });
-      },
-      (error) => {
-        deferred.response({
-          type: 'error',
-          text: error.text,
-        });
-      });
-
-    return deferred.promise;
-  }
-
-  /**
    * Perform User Logins using provided credentials
    * @param  {Object} userCredentials
    * @return {Promise}
@@ -81,7 +56,7 @@ class Auth {
         });
       },
       (error) => {
-        deferred.resolve({
+        deferred.reject({
           type: 'error',
           text: error.text,
         });
@@ -109,7 +84,7 @@ class Auth {
         });
       },
       (error) => {
-        deferred.resolve({
+        deferred.reject({
           type: 'error',
           text: error.text,
         });
