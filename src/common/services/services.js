@@ -9,7 +9,7 @@ import Password from './password/Password';
  * appServices module will be a collection of reusable services
  * @type {Module}
  */
-const appServices = angular.module('appServices', [
+const appServices = angular.module('app.services', [
   appConstants,
 ]);
 

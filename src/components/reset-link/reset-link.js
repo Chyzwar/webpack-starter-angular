@@ -1,18 +1,15 @@
+import '../reset/reset.scss';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 
-import resetComponent from './reset.component';
 import resetLinkComponent from './reset-link.component';
 
-const resetModule = angular.module('app.reset', [
+const appResetLink = angular.module('app.resetLink', [
   uiRouter,
 ])
 .config(($stateProvider) => {
   $stateProvider
-    .state('reset', {
-      url: '/reset',
-      component: 'reset',
-    })
     .state('reset.validate', {
       url: '/reset-link',
       params: {
@@ -22,7 +19,7 @@ const resetModule = angular.module('app.reset', [
       component: 'reset-link',
     });
 })
-.component('reset', resetComponent)
 .component('reset-link', resetLinkComponent);
 
-export default resetModule.name;
+
+export default appResetLink.name;

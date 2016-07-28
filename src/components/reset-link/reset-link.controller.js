@@ -4,7 +4,7 @@ class ResetLinkController {
 
     this.code = $stateParams.code;
     this.user = $stateParams.user;
-    console.log($stateParams);
+
     this.message = {
       type: '',
       text: '',

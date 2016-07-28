@@ -1,13 +1,11 @@
 import angular from 'angular';
 
-const env = NODE_ENV;
-
 /**
- * Function that set base URL based on env
- * @return {String}
+ * Function that set URLs based on env
+ * @return {Object}
  */
 function appUrls() {
-  switch (env) {
+  switch (process.env.NODE_ENV) {
     case 'development':
       return {
         api: 'localhost:6000',
@@ -19,9 +17,10 @@ function appUrls() {
         base: 'example.com',
       };
     default:
-      throw new Error('NODE_ENV is not set by webpack DefinePlugin');
+      throw new Error('process.env.NODE_ENV is not set by webpack DefinePlugin');
   }
 }
+
 
 const urls = appUrls();
 
@@ -30,10 +29,10 @@ const urls = appUrls();
  * These will get injected to top level app module and comon modules as needed
  * @type {Module}
  */
-const appConstants = angular.module('appConstants', []);
+const appConstants = angular.module('app.constants', []);
 
-appConstants.constants('BASE_URL', urls.base());
-appConstants.constants('API_URL', urls.api);
+appConstants.constant('BASE_URL', urls.base);
+appConstants.constant('API_URL', urls.api);
 
 export default appConstants.name;
 

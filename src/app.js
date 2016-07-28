@@ -11,7 +11,7 @@ import uiRouter from 'angular-ui-router';
 
 import AppComponent from './app.component';
 import appCommon from './common/common';
-import appComponents from './pages/pages';
+import appComponents from './components/components';
 
 /**
  * Top level, application module initalisation

@@ -2,7 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
 
-const homeModule = angular.module('home', [
+const homeModule = angular.module('app.home', [
   uiRouter,
 ])
 
@@ -12,7 +12,7 @@ const homeModule = angular.module('home', [
   $stateProvider
     .state('home', {
       url: '/',
-      template: '<home></home>',
+      component: 'home',
     });
 })
 

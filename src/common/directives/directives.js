@@ -11,12 +11,12 @@ import Navbar from './navbar/navbar';
  * Initialise module with dependancies
  * @type {Module}
  */
-const appDirectives = angular.module('appDirectives', [
+const appDirectives = angular.module('app.directives', [
   ngAnimate,
   ngAria,
   ngMaterial,
 ])
-.config(($mdThemingProvider)=> {
+.config(($mdThemingProvider) => {
   $mdThemingProvider.theme('default');
 });
 

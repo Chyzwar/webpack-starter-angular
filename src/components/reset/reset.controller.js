@@ -1,5 +1,5 @@
 class ResetLinkController {
-  constructor(Password, $stateParams) {
+  constructor(Password) {
     this.Password = Password;
 
     /**

@@ -10,7 +10,7 @@ import appConstants from './constant';
  * Common functionality across app.
  * @type {Module}
  */
-const appCommons = angular.module('appCommon', [
+const appCommons = angular.module('app.commons', [
   appDirectives,
   appModules,
   appServices,

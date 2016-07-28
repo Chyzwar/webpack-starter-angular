@@ -3,7 +3,7 @@ import uiRouter from 'angular-ui-router';
 
 import loginComponent from './login.component';
 
-const loginModule = angular.module('app.login', [
+const appLogin = angular.module('app.login', [
   uiRouter,
 ])
 .config(($stateProvider) => {
@@ -16,4 +16,4 @@ const loginModule = angular.module('app.login', [
 .component('login', loginComponent);
 
 
-export default loginModule.name;
+export default appLogin.name;
