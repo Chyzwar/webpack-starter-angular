@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
@@ -108,7 +108,7 @@ module.exports = {
      * Angular annotate for dependancy injection.
      * ngAnnotate automaticly add annonations in $inject
      */
-    new ngAnnotatePlugin({
+    new NgAnnotatePlugin({
       add: true,
     }),
     /**
@@ -138,5 +138,5 @@ module.exports = {
     }),
   ],
   cache: true,
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
 };

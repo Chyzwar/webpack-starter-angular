@@ -4,7 +4,7 @@ class LoginController {
     this.$state = $state;
 
     /**
-     * User can be email or nick
+     * user can be email || username.
      * @type {Object}
      */
     this.credentials = {
