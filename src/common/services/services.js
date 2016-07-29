@@ -1,24 +1,24 @@
 import angular from 'angular';
-import appConstants from '../constant';
+import appConstants from '../constants';
 
 import Auth from './auth/auth';
 import User from './user/user';
 import Password from './password/Password';
 
 /**
- * appServices module will be a collection of reusable services
+ * commonServices module will be a collection of reusable services
  * @type {Module}
  */
-const appServices = angular.module('app.services', [
+const commonServices = angular.module('common.services', [
   appConstants,
 ]);
 
 /**
  * Register Serivices in module
  */
-appServices.service('Auth', Auth);
-appServices.service('User', User);
-appServices.service('Password', Password);
+commonServices.service('Auth', Auth);
+commonServices.service('User', User);
+commonServices.service('Password', Password);
 
 
-export default appServices.name;
+export default commonServices.name;

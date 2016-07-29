@@ -1,17 +1,31 @@
-import { joinUrl } from '../../utilities/http';
 
 class Auth {
-  constructor(API_URL, $http, $q) {
-    this.$http = $http;
+  constructor(API_URL, $q, $http) {
     this.$q = $q;
+    this.$http = $http;
 
-    this.token = undefined;
-    this.user = undefined;
-
-    this.endpoint = '/auth';
-    this.url = joinUrl(API_URL, this.endpoint);
+    /**
+     * Create URL endpoint + base
+     * @type {URL}
+     */
+    this.url = new URL('/auth', API_URL);
   }
 
+  /**
+   * Setter for token
+   * @param  {String}
+   */
+  set token(token) {
+    this.token = token;
+  }
+
+  /**
+   * Setter for User
+   * @param {User} user
+   */
+  set user(user) {
+    this.user = user;
+  }
 
   /**
    * Get current X Token
@@ -39,13 +53,13 @@ class Auth {
 
   /**
    * Perform User Logins using provided credentials
-   * @param  {Object} userCredentials
+   * @param  {Object} credentials
    * @return {Promise}
    */
-  login(userCredentials) {
+  login(credentials) {
     const deferred = this.$q.defer();
 
-    this.$http.post(this.url, userCredentials).then(
+    this.$http.post(this.url.href, credentials).then(
       (response) => {
         this.user = response.user;
         this.token = response.token;
@@ -74,7 +88,7 @@ class Auth {
   logout() {
     const deferred = this.$q.defer();
 
-    this.$http.delete(this.url, this.user).then(
+    this.$http.delete(this.url.href, this.user).then(
       () => {
         this.token = this.user = undefined;
 

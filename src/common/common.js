@@ -1,21 +1,21 @@
 import angular from 'angular';
 
-import appDirectives from './directives/directives';
-import appModules from './modules/modules';
-import appServices from './services/services';
-import appFilters from './filters/filters';
-import appConstants from './constant';
+import directives from './directives/directives';
+import modules from './modules/modules';
+import services from './services/services';
+import filters from './filters/filters';
+import constants from './constants';
 
 /**
  * Common functionality across app.
  * @type {Module}
  */
-const appCommons = angular.module('app.commons', [
-  appDirectives,
-  appModules,
-  appServices,
-  appFilters,
-  appConstants,
+const common = angular.module('common', [
+  directives,
+  modules,
+  services,
+  filters,
+  constants,
 ]);
 
-export default appCommons.name;
+export default common.name;

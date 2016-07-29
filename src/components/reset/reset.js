@@ -10,6 +10,9 @@ const appReset = angular.module('app.reset', [
   $stateProvider
     .state('reset', {
       url: '/reset',
+      params: {
+        user: null,
+      },
       component: 'reset',
     });
 })

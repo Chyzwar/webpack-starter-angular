@@ -10,7 +10,7 @@ const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' })
 module.exports = {
   entry: {
     client: './src/app.js',
-    common: ['angular', 'angular-ui-router', 'angular-animate', 'angular-aria', 'angular-material']
+    common: ['angular', 'angular-ui-router', 'angular-animate', 'angular-aria', 'angular-material'],
   },
   output: {
     /**
@@ -54,7 +54,7 @@ module.exports = {
           query: {
             sourceMap: true,
             minimize: true,
-          }
+          },
         },
         ]),
       },
@@ -64,8 +64,8 @@ module.exports = {
         query: {
           limit: 65000,
           name: 'fonts/[name].[hash].[ext]',
-          minetype:'application/vnd.ms-fontobject'
-        }
+          minetype: 'application/vnd.ms-fontobject',
+        },
       },
       {
         test: /\.(woff|woff2)$/,
@@ -82,7 +82,7 @@ module.exports = {
         query: {
           limit: 65000,
           name: 'fonts/[name].[hash].[ext]',
-          minetype: 'application/x-font-ttf'
+          minetype: 'application/x-font-ttf',
         },
       },
       {
@@ -134,7 +134,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: 2,
-      filename: 'js/common.[hash].js'
+      filename: 'js/common.[hash].js',
     }),
   ],
   cache: true,

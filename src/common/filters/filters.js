@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-const appFilters = angular.module('app.filters', []);
+const commonFilters = angular.module('common.filters', []);
 
 
-export default appFilters.name;
+export default commonFilters.name;

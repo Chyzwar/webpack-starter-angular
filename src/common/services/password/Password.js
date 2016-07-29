@@ -1,23 +1,26 @@
-import { joinUrl } from '../../utilities/http';
 
 class Password {
-  constructor(API_URL, $http, $q) {
-    this.$http = $http;
+  constructor(API_URL, $q, $http) {
     this.$q = $q;
+    this.$http = $http;
 
-    this.endpoint = '/password';
-    this.url = joinUrl(API_URL, this.endpoint);
+    /**
+     * Create URLs endpoint + base
+     * @type {URL}
+     */
+    this.urlReset = new URL('/password-reset', API_URL);
+    this.urlChange = new URL('/password-change', API_URL);
   }
 
   /**
-   * Make request to reset a password
-   * @param  {String} userName
+   * Make request to send reset password mail
+   * @param  {String} user string | email
    * @return {Promise}
    */
-  resetLink(userName) {
+  resetLink(user) {
     const deferred = this.$q.defer();
 
-    this.$http.get(this.url, userName).then(
+    this.$http.post(this.urlReset.href, user).then(
       () => {
         deferred.resolve({
           type: 'success',
@@ -34,11 +37,24 @@ class Password {
     return deferred.promise;
   }
 
-  changePassword() {
+  changePassword(credentials) {
+    const deferred = this.$q.defer();
 
-  }
-  validateLink() {
+    this.$http.update(this.urlChange.href, credentials).then(
+      () => {
+        deferred.resolve({
+          type: 'success',
+          text: 'Password update was successful',
+        });
+      },
+      (error) => {
+        deferred.reject({
+          type: 'error',
+          text: error.text,
+        });
+      });
 
+    return deferred.promise;
   }
 }
 

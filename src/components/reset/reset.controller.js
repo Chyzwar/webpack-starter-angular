@@ -1,12 +1,12 @@
 class ResetLinkController {
-  constructor(Password) {
+  constructor(Password, $stateParams) {
     this.Password = Password;
 
     /**
      * userName or password
      * @type {String}
      */
-    this.user = '';
+    this.user = $stateParams.user;
 
     this.message = {
       type: '',

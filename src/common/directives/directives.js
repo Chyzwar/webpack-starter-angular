@@ -11,7 +11,7 @@ import Navbar from './navbar/navbar';
  * Initialise module with dependancies
  * @type {Module}
  */
-const appDirectives = angular.module('app.directives', [
+const commonDirectives = angular.module('common.directives', [
   ngAnimate,
   ngAria,
   ngMaterial,
@@ -23,7 +23,7 @@ const appDirectives = angular.module('app.directives', [
 /**
  * Register directives in module
  */
-appDirectives.directive('navbar', Navbar);
+commonDirectives.directive('navbar', Navbar);
 
 
-export default appDirectives.name;
+export default commonDirectives.name;

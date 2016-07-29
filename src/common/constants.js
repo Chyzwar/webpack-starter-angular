@@ -8,8 +8,8 @@ function appUrls() {
   switch (process.env.NODE_ENV) {
     case 'development':
       return {
-        api: 'localhost:6000',
-        base: 'localhost:6000',
+        api: 'http://localhost:6000',
+        base: 'http://localhost:3000',
       };
     case 'production':
       return {
@@ -26,13 +26,18 @@ const urls = appUrls();
 
 /**
  * appConstants module will be a collection of application wide constants
- * These will get injected to top level app module and comon modules as needed
+ * These will get injected to top level app module and common modules as needed
  * @type {Module}
  */
 const appConstants = angular.module('app.constants', []);
 
 appConstants.constant('BASE_URL', urls.base);
 appConstants.constant('API_URL', urls.api);
+appConstants.constant('PASSWORD_POLICY',
+  {
+    regex: '',
+  });
+
 
 export default appConstants.name;
 

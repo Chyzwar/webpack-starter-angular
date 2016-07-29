@@ -2,10 +2,10 @@ import angular from 'angular';
 
 
 /**
- * appModules module will be a collection of reusable modules
+ * commonModules module will be a collection of reusable modules
  * @type {Module}
  */
-const appModules = angular.module('app.modules', []);
+const commonModules = angular.module('common.modules', []);
 
 
-export default appModules.name;
+export default commonModules.name;

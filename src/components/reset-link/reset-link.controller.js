@@ -1,31 +1,34 @@
 class ResetLinkController {
-  constructor(Password, $stateParams) {
-    this.Password = Password;
+  constructor(PASSWORD_POLICY, Password, $state, $stateParams) {
+    this.policy = PASSWORD_POLICY;
 
-    this.code = $stateParams.code;
-    this.user = $stateParams.user;
+    this.Password = Password;
+    this.$state = $state;
+
+    this.credentials = {
+      user: $stateParams.code,
+      code: $stateParams.user,
+      password: '',
+      confirmation: '',
+    };
 
     this.message = {
       type: '',
       text: '',
     };
-
-    this.Password.validateLink(
-      { user: this.user, code: this.code }
-    ).then(
-      (message) => {
-        this.message = message;
-        this.showPasswordForm = true;
-      }
-    ).catch(
-      (message) => {
-        this.message = message;
-      }
-    );
   }
 
   changePassword() {
-
+    this.Password.changePassword(this.credentials).then(
+      (message) => {
+        this.message = message;
+        this.$state.go('login', {
+          user: this.credentials.user,
+        });
+      }).catch(
+      (message) => {
+        this.message = message;
+      });
   }
 }
 

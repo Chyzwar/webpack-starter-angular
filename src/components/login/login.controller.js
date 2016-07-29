@@ -1,15 +1,20 @@
 class LoginController {
-  constructor($state, Auth) {
-    this.$state = $state;
+  constructor(Auth, $state) {
     this.Auth = Auth;
-    this.user = {
-      userName: '',
+    this.$state = $state;
+
+    /**
+     * User can be email or nick
+     * @type {Object}
+     */
+    this.credentials = {
+      user: '',
       password: '',
     };
   }
 
   login() {
-    this.Auth.login(this.user).then(
+    this.Auth.login(this.credentials).then(
       () => {
         this.$state.go('home');
       }
@@ -22,7 +27,7 @@ class LoginController {
 
   reset() {
     this.$state.go('reset', {
-      userName: this.user.userName,
+      user: this.credentials.user,
     });
   }
 }
