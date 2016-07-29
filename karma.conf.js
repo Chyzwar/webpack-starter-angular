@@ -1,7 +1,7 @@
 const webpackConfig = require('./webpack.dev');
 
 
-exports.default = (config) => {
+module.exports = (config) => {
   config.set({
     /**
      * Base path used to resolve all patterns

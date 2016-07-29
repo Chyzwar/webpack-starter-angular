@@ -37,13 +37,15 @@
     "eslint-plugin-jsx-a11y": "1.x.x",
     "eslint-plugin-import": "1.7.x",
 
-    "angular-mocks": "1.x.x",
     "karma": "1.x.x",
+    "karma-mocha": "1.x.x",
+    "karma-mocha-reporter": "1.x.x",
     "karma-chrome-launcher": "1.x.x",
     "karma-firefox-launcher": "1.x.x",
     "karma-sourcemap-loader": "^0.3.4",
     "karma-webpack": "1.x.x",
-    "mocha": "3.x.x",
+    "mocha": "^3.0.0-2",
+    "angular-mocks": "1.x.x",
 
     "node-sass": "*",
     "raw-loader": "*",
@@ -56,7 +58,7 @@
 
     "webpack": "^2.1.0-beta",
     "webpack-merge": "*",
-    "webpack-dev-server": "^2.0.0-beta",
+    "webpack-dev-server": "^2.1.0-beta",
     "html-webpack-plugin": "*",
     "ng-annotate-webpack-plugin": "*",
     "extract-text-webpack-plugin": "^2.0.0-beta"
