@@ -15,8 +15,7 @@
   },
 
   "globals" : {
-    "NODE_ENV"   : false,
-    "chai"       : false,
+    "expect"     : false,
     "describe"   : false,
     "it"         : false,
     "before"     : false,

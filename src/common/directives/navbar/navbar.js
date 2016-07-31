@@ -1,15 +1,15 @@
-import template from './navbar.html';
-import controller from './navbar.controller';
+import navbar from './navbar.html';
+import NavbarCtrl from './NavbarCtrl';
 
-const navbarDirective = function () {
+function navbarDirective() {
   return {
     restrict: 'E',
     scope: {},
-    template,
-    controller,
-    controllerAs: "$ctrl",
-    bindToController: true
+    template: navbar,
+    controller: NavbarCtrl,
+    controllerAs: 'dnc',
+    bindToController: true,
   };
-};
+}
 
 export default navbarDirective;
