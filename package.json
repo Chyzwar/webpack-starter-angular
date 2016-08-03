@@ -38,6 +38,7 @@
     "eslint-plugin-import": "1.7.x",
 
     "karma": "1.x.x",
+    "karma-chai": "*",
     "karma-mocha": "1.x.x",
     "karma-mocha-reporter": "1.x.x",
     "karma-chrome-launcher": "1.x.x",
@@ -45,6 +46,7 @@
     "karma-sourcemap-loader": "^0.3.4",
     "karma-webpack": "1.x.x",
     "mocha": "^3.0.0-2",
+    "chai": "3.x.x",
     "angular-mocks": "1.x.x",
 
     "node-sass": "*",

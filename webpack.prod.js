@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 const commonConfig = require('./webpack.common.js');
 
@@ -15,6 +16,12 @@ module.exports = webpackMerge(commonConfig, {
    * See: http://webpack.github.io/docs/configuration.html#debug
    */
   debug: false,
+
+  /**
+   * In memmory budles/files
+   * @type {Boolean}
+   */
+  cache: false,
 
   /**
    * Developer tool to enhance debugging.
@@ -46,7 +53,14 @@ module.exports = webpackMerge(commonConfig, {
 
     new webpack.optimize.AggressiveMergingPlugin({
       minSizeReduce: 1.5,
-      moveToParents: true
+      moveToParents: true,
+    }),
+    /**
+     * Angular annotate for dependancy injection.
+     * ngAnnotate automaticly add annonations in $inject
+     */
+    new NgAnnotatePlugin({
+      add: true,
     }),
     /**
      * Plugin: UglifyJsPlugin
@@ -62,7 +76,7 @@ module.exports = webpackMerge(commonConfig, {
       compress: {
         warnings: true,
         passes: 2,
-        drop_console:true
+        drop_console: true,
         beautify: false,
         comments: false,
         screw_ie8: true,

@@ -3,12 +3,23 @@ const webpackMerge = require('webpack-merge');
 const commonConfig = require('./webpack.common');
 
 /**
- * Merge common config wit development specific
+ * Remove Html and CommonChunks plugin.
+ * @type {Array}
+ */
+commonConfig.plugins = commonConfig.plugins.slice(0, 2);
+
+/**
+ * Merge common config with test specific
  * @type {object}
  */
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'inline-source-map',
-  cache: true,
+  devtool: 'source-map',
+  /**
+   * Webpack is only used as preprocessor,
+   * There is no need to compile application files
+   * @type {Object}
+   */
+  entry: {}, output: {},
   plugins: [
     /**
      * Plugin: DefinePlugin

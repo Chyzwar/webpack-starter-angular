@@ -1,4 +1,4 @@
-const webpackConfig = require('./webpack.dev');
+const webpackConfig = require('./webpack.test');
 
 
 module.exports = (config) => {
@@ -15,7 +15,7 @@ module.exports = (config) => {
      *
      * See: https://npmjs.org/browse/keyword/karma-adapter
      */
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
 
     /**
      * Avalilable reporters

@@ -1,16 +1,21 @@
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const extractCSS = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
-const extractSCSS = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' });
+const extractApp = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' });
+const extractVendor = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
 
 module.exports = {
   entry: {
     client: './src/app.js',
-    common: ['angular', 'angular-ui-router', 'angular-animate', 'angular-aria', 'angular-material'],
+    common: [
+      'angular',
+      'angular-ui-router',
+      'angular-animate',
+      'angular-aria',
+      'angular-material',
+    ],
   },
   output: {
     /**
@@ -42,14 +47,14 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: extractSCSS.extract([
+        loader: extractApp.extract([
           { loader: 'css-loader', query: { sourceMap: true } },
           { loader: 'sass-loader', query: { sourceMap: true } },
         ]),
       },
       {
         test: /\.css$/,
-        loader: extractCSS.extract([
+        loader: extractVendor.extract([
           { loader: 'css-loader',
           query: {
             sourceMap: true,
@@ -102,15 +107,9 @@ module.exports = {
      * Assume that application style will be written on sass
      * Vandor CSS like ui-grid will be linked as CSS
      */
-    extractCSS,
-    extractSCSS,
-    /**
-     * Angular annotate for dependancy injection.
-     * ngAnnotate automaticly add annonations in $inject
-     */
-    new NgAnnotatePlugin({
-      add: true,
-    }),
+    extractApp,
+    extractVendor,
+
     /**
      * HtmlWebpackPlugin configuration
      */
@@ -125,18 +124,16 @@ module.exports = {
         removeStyleLinkTypeAttributes: false,
       },
     }),
-    /**
+    /*
      * All modules from common entry will be extracted, also
      * If module is shared by 2 childrens it will get extracted to commons.
      *
      * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-     */
+    */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: 2,
       filename: 'js/common.[hash].js',
     }),
   ],
-  cache: true,
-  devtool: 'inline-source-map',
 };
