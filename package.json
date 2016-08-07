@@ -4,16 +4,20 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "analyze": "webpack --json | webpack-bundle-size-analyzer",
-    "clean": "npm cache clean && rimraf -- doc coverage build",
+    "eslint": "./node_modules/.bin/eslint",
+    "webpack": "./node_modules/.bin/webpack",
+    "webpack:server": "./node_modules/.bin/webpack-dev-server",
 
-    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config webpack.dev",
-    "start:build": "",
-    "build": "npm run clean && webpack --config webpack.prod",
-    "build:prod": "npm run clean &&  webpack -p --config webpack.prod",
+    "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
+    "clean": "npm cache clean && rm -rf -- doc coverage build",
 
-    "lint": "eslint src/ || true",
-    "lint:travis": "eslint src/",
+    "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config webpack.dev",
+    "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config webpack.prod",
+    "build": "npm run clean && npm run webpack -- --config webpack.prod",
+    "build:prod": "npm run clean &&  npm run webpack -- -p --config webpack.prod",
+
+    "lint": "npm run eslint -- src/",
+    "lint:travis": "npm run eslint -- src/",
 
     "test": "karma start",
     "test:debug": "karma start karma.conf.js --log-level=debug --single-run=False",

@@ -108,6 +108,6 @@ module.exports = (config) => {
      * Run tests and Exit
      * @type {Boolean}
      */
-    singleRun: true,
+    singleRun: false,
   });
 };
