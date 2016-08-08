@@ -6,6 +6,8 @@ import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 
 import sideNavbar from './side-navbar/sideNavbar';
+import topNavbar from './top-navbar/topNavbar';
+import userAvatar from './user-avatar/userAvatar';
 
 /**
  * Initialise module with dependancies
@@ -24,6 +26,7 @@ const commonDirectives = angular.module('common.directives', [
  * Register directives in module
  */
 commonDirectives.directive('sideNavbar', sideNavbar);
-
+// commonDirectives.directive('topNavbar', topNavbar);
+commonDirectives.directive('userAvatar', userAvatar)
 
 export default commonDirectives.name;
