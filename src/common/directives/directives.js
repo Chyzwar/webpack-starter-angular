@@ -5,7 +5,7 @@ import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 
-import Navbar from './navbar/navbar';
+import sideNavbar from './side-navbar/sideNavbar';
 
 /**
  * Initialise module with dependancies
@@ -23,7 +23,7 @@ const commonDirectives = angular.module('common.directives', [
 /**
  * Register directives in module
  */
-commonDirectives.directive('navbar', Navbar);
+commonDirectives.directive('sideNavbar', sideNavbar);
 
 
 export default commonDirectives.name;

@@ -1,7 +1,7 @@
 import angular from 'angular';
 import appConstants from '../constants';
 
-import Auth from './auth/auth';
+import Auth from './auth/Auth';
 import User from './user/user';
 import Password from './password/Password';
 

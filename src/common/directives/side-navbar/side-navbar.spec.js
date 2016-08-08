@@ -1,10 +1,10 @@
-import NavbarCtrl from './NavbarCtrl';
-import navbarDirective from './navbar';
-import NavbarTemplate from './navbar.html';
+import SideNavbarCtrl from './SideNavbarCtrl';
+import navbarDirective from './side-navbar';
+import NavbarTemplate from './side-navbar.html';
 
-describe('NavbarDirective', () => {
+describe('SideNavbarDirective', () => {
   describe('Controller', () => {
-    const ctrl = new NavbarCtrl();
+    const ctrl = new SideNavbarCtrl();
 
     it('have name property', () => {
       expect(ctrl).to.have.property('name');
@@ -13,7 +13,7 @@ describe('NavbarDirective', () => {
 
   describe('Component', () => {
     const component = navbarDirective();
-    const ctrl = new NavbarCtrl();
+    const ctrl = new SideNavbarCtrl();
 
     it('includes the intended template', () => {
       expect(component.template).to.equal(NavbarTemplate);
