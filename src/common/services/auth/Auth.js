@@ -40,7 +40,15 @@ class Auth {
    * @return {User}
    */
   get user() {
-    return this.user;
+    // return this.user;
+    return {
+      firstName: 'Marcin',
+      lastName: 'Kopacz',
+      pictureUrl: 'http://pl.memgenerator.pl/mem-image/jestem-mistrzem-szaolin-pl-000000',
+      permisions: {
+        role: 'Master of The Universe'
+      }
+    }
   }
 
   /**

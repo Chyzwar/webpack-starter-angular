@@ -1,6 +1,6 @@
 class SideNavbarController {
-  constructor($mdSidenav) {
-    this.name = 'navbar';
+  constructor(Auth) {
+    this.user = Auth.user;
 
     this.menu = [
       {

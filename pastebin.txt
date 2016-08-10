@@ -1,0 +1,14 @@
+
+<!--
+<md-card class="user-avatar">
+  <md-card-header >
+    <md-card-avatar>
+      <img class="md-user-avatar" src="{{ user.pictureUrl }} ">
+    </md-card-avatar>
+    <md-card-header-text>
+      <span class="md-title">{{ user.firstName }} {{ user.lastName }}</span>
+      <span class="md-subhead">{{ user.permisions.role }}</span>
+    </md-card-header-text>
+  </md-card-header>
+</md-card>
+ -->

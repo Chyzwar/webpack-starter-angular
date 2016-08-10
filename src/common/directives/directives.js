@@ -4,6 +4,7 @@ import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
+import filters from '../filters/filters';
 
 import sideNavbar from './side-navbar/sideNavbar';
 import topNavbar from './top-navbar/topNavbar';
@@ -17,6 +18,7 @@ const commonDirectives = angular.module('common.directives', [
   ngAnimate,
   ngAria,
   ngMaterial,
+  filters,
 ])
 .config(($mdThemingProvider) => {
   $mdThemingProvider.theme('default');
