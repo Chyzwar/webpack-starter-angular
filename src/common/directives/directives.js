@@ -28,7 +28,7 @@ const commonDirectives = angular.module('common.directives', [
  * Register directives in module
  */
 commonDirectives.directive('sideNavbar', sideNavbar);
-// commonDirectives.directive('topNavbar', topNavbar);
+commonDirectives.directive('topNavbar', topNavbar);
 commonDirectives.directive('userAvatar', userAvatar)
 
 export default commonDirectives.name;
