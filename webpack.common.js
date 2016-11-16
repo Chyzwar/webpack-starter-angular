@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -23,7 +24,7 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-path
      */
-    path: './build/',
+    path: path.join(__dirname, './build/'),
     /**
      * Specifies the name of each output file on disk.
      *
@@ -40,7 +41,7 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['', '.js'],
+    extensions: ['.js'],
   },
   target: 'web',
   module: {
@@ -56,16 +57,16 @@ module.exports = {
         test: /\.css$/,
         loader: extractVendor.extract([
           { loader: 'css-loader',
-          query: {
-            sourceMap: true,
-            minimize: true,
+            query: {
+              sourceMap: true,
+              minimize: true,
+            },
           },
-        },
         ]),
       },
       {
         test: /\.eot$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 65000,
           name: 'fonts/[name].[hash].[ext]',
@@ -74,7 +75,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2)$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 65000,
           name: 'fonts/[name].[hash].[ext]',
@@ -83,7 +84,7 @@ module.exports = {
       },
       {
         test: /\.ttf$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 65000,
           name: 'fonts/[name].[hash].[ext]',
@@ -92,12 +93,12 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: { limit: 10000, minetype: 'image/svg+xml' },
       },
       {
         test: /\.html$/,
-        loader: 'raw',
+        loader: 'raw-loader',
       },
     ],
   },
