@@ -40,7 +40,6 @@ module.exports = webpackMerge(commonConfig, {
    * See: http://webpack.github.io/docs/configuration.html#plugins
    */
   plugins: [
-
     /**
      * Plugin: DedupePlugin
      * Description: Prevents the inclusion of duplicate code into your bundle
@@ -51,17 +50,30 @@ module.exports = webpackMerge(commonConfig, {
      */
     new webpack.optimize.DedupePlugin(),
 
+    /**
+     * Plugin: Agressive-Merging
+     * Description:
+     *
+     *
+     * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+     * See: https://github.com/webpack/webpack/tree/master/examples/agressive-merging
+     */
     new webpack.optimize.AggressiveMergingPlugin({
       minSizeReduce: 1.5,
       moveToParents: true,
     }),
+
     /**
-     * Angular annotate for dependancy injection.
+     * Plugin: NgAnnotatePlugin
+     * Description: Angular annotate for dependancy injection.
      * ngAnnotate automaticly add annonations in $inject
+     *
+     * See: https://github.com/jeffling/ng-annotate-webpack-plugin
      */
     new NgAnnotatePlugin({
       add: true,
     }),
+
     /**
      * Plugin: UglifyJsPlugin
      * Description: Minimize all JavaScript output of chunks.

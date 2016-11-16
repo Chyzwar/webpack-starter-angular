@@ -35,11 +35,11 @@
   "license": "MIT",
   "repository": "https://github.com/Chyzwar/webpack-starter-angular",
   "devDependencies": {
-    "eslint": "2.10.x",
-    "eslint-config-airbnb": "*",
-    "eslint-plugin-react": "5.x.x",
-    "eslint-plugin-jsx-a11y": "1.x.x",
-    "eslint-plugin-import": "1.7.x",
+    "eslint": "3.9.x",
+    "eslint-config-airbnb": "13.0.x",
+    "eslint-plugin-react": "6.6.x",
+    "eslint-plugin-jsx-a11y": "2.2.x",
+    "eslint-plugin-import": "2.1.x",
 
     "karma": "1.x.x",
     "karma-chai": "*",
