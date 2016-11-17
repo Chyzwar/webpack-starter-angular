@@ -46,9 +46,9 @@ class Auth {
       lastName: 'Kopacz',
       pictureUrl: 'http://pl.memgenerator.pl/mem-image/jestem-mistrzem-szaolin-pl-000000',
       permisions: {
-        role: 'Master of The Universe'
-      }
-    }
+        role: 'Master of The Universe',
+      },
+    };
   }
 
   /**
@@ -82,8 +82,7 @@ class Auth {
           type: 'error',
           text: error.text,
         });
-      }
-    );
+      });
 
     return deferred.promise;
   }

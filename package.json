@@ -49,7 +49,7 @@
     "karma-firefox-launcher": "1.x.x",
     "karma-sourcemap-loader": "^0.3.4",
     "karma-webpack": "1.x.x",
-    "mocha": "^3.0.0-2",
+    "mocha": "3.x.x",
     "chai": "3.x.x",
     "angular-mocks": "1.x.x",
 

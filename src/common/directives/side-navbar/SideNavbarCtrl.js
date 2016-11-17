@@ -1,36 +1,38 @@
+
+
 class SideNavbarController {
   constructor(Auth) {
     this.user = Auth.user;
 
     this.menu = [
       {
-        link : '',
+        link: '',
         title: 'Dashboard',
-        icon: 'dashboard'
+        icon: 'dashboard',
       },
       {
-        link : '',
+        link: '',
         title: 'Friends',
-        icon: 'group'
+        icon: 'group',
       },
       {
-        link : '',
+        link: '',
         title: 'Messages',
-        icon: 'message'
-      }
+        icon: 'message',
+      },
     ];
 
     this.admin = [
       {
-        link : '',
+        link: '',
         title: 'Trash',
-        icon: 'delete'
+        icon: 'delete',
       },
       {
-        link : 'showListBottomSheet($event)',
+        link: 'showListBottomSheet($event)',
         title: 'Settings',
-        icon: 'settings'
-      }
+        icon: 'settings',
+      },
     ];
   }
 }

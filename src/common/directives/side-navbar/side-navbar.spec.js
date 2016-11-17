@@ -1,5 +1,5 @@
 import SideNavbarCtrl from './SideNavbarCtrl';
-import navbarDirective from './side-navbar';
+import navbarDirective from './sideNavbar';
 import NavbarTemplate from './side-navbar.html';
 
 describe('SideNavbarDirective', () => {

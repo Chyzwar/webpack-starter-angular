@@ -10,6 +10,7 @@
 
 import 'angular';
 import 'angular-mocks';
+import './src/app';
 
 // We use the context method on `require` which Webpack created
 // in order to signify which files we ac/tually want to require or import.
