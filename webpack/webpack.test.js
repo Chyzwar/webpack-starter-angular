@@ -19,7 +19,8 @@ module.exports = webpackMerge(commonConfig, {
    * There is no need to compile application files
    * @type {Object}
    */
-  entry: {}, output: {},
+  entry: {},
+  output: {},
   plugins: [
     /**
      * Plugin: DefinePlugin
