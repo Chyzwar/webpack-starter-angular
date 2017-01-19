@@ -11,10 +11,10 @@
     "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
     "clean": "npm cache clean && rm -rf -- doc coverage build",
 
-    "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config webpack.dev",
-    "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config webpack.prod",
-    "build": "npm run clean && npm run webpack -- --config webpack.prod",
-    "build:prod": "npm run clean &&  npm run webpack -- -p --config webpack.prod",
+    "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
+    "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
+    "build": "npm run clean && npm run webpack -- --config ./webpack/prod",
+    "build:prod": "npm run clean &&  npm run webpack -- -p --config ./webpack/prod",
 
     "lint": "npm run eslint -- src/",
     "lint:travis": "npm run eslint -- src/",
@@ -26,20 +26,17 @@
   "keywords": [
     "bundle",
     "webpack",
-    "npm",
-    "angular",
-    "es2015",
-    "ES6"
+    "angular"
   ],
   "author": "Marcin Kopacz",
   "license": "MIT",
   "repository": "https://github.com/Chyzwar/webpack-starter-angular",
   "devDependencies": {
-    "eslint": "3.9.x",
-    "eslint-config-airbnb": "13.0.x",
-    "eslint-plugin-react": "6.6.x",
-    "eslint-plugin-jsx-a11y": "2.2.x",
-    "eslint-plugin-import": "2.1.x",
+    "eslint": "3.13.x",
+    "eslint-config-airbnb": "14.0.x",
+    "eslint-plugin-react": "6.9.x",
+    "eslint-plugin-jsx-a11y": "3.x.x",
+    "eslint-plugin-import": "2.2.x",
 
     "karma": "1.x.x",
     "karma-chai": "*",
@@ -62,9 +59,9 @@
     "url-loader": "*",
     "file-loader": "*",
 
-    "webpack": "^2.1.0-beta",
+    "webpack": "2.x.x",
     "webpack-merge": "*",
-    "webpack-dev-server": "^2.1.0-beta",
+    "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
     "ng-annotate-webpack-plugin": "*",
     "extract-text-webpack-plugin": "^2.0.0-beta"

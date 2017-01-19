@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
-const commonConfig = require('./webpack.common.js');
+const commonConfig = require('./common.js');
 
 /**
  * Merge common config with prod specific configuration
