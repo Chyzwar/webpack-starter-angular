@@ -64,7 +64,7 @@
     "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
     "ng-annotate-webpack-plugin": "*",
-    "extract-text-webpack-plugin": "^2.0.0-beta"
+    "extract-text-webpack-plugin": "^2.0.0-rc"
   },
   "dependencies": {
     "angular": "1.x.x",
@@ -72,9 +72,9 @@
     "angular-animate": "1.x.x",
     "angular-aria": "1.x.x",
     "angular-material": "1.x.x",
-    "angular-moment": "^1.0.0-beta",
+    "angular-moment": "^1.x.x",
 
-    "angular-ui-router": "^1.0.0-beta",
+    "angular-ui-router": "^1.0.0-rc",
     "lodash": "4.x.x"
   }
 }
