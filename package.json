@@ -1,5 +1,5 @@
 {
-  "name": "main",
+  "name": "angular-starter",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -30,14 +30,8 @@
   ],
   "author": "Marcin Kopacz",
   "license": "MIT",
-  "repository": "https://github.com/Chyzwar/webpack-starter-angular",
+  "repository": "https://github.com/chyzwar/angular-starter",
   "devDependencies": {
-    "eslint": "3.13.x",
-    "eslint-config-airbnb": "14.0.x",
-    "eslint-plugin-react": "6.9.x",
-    "eslint-plugin-jsx-a11y": "3.x.x",
-    "eslint-plugin-import": "2.2.x",
-
     "karma": "1.x.x",
     "karma-chai": "*",
     "karma-mocha": "1.x.x",
@@ -48,8 +42,8 @@
     "karma-webpack": "1.x.x",
     "mocha": "3.x.x",
     "chai": "3.x.x",
-    "angular-mocks": "1.x.x",
 
+    "ts-loader": "*",
     "node-sass": "*",
     "raw-loader": "*",
     "css-loader": "*",
@@ -64,17 +58,22 @@
     "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
     "ng-annotate-webpack-plugin": "*",
-    "extract-text-webpack-plugin": "^2.0.0-rc"
+    "extract-text-webpack-plugin": "^2.x.x"
   },
   "dependencies": {
-    "angular": "1.x.x",
-    "angular-sanitize": "1.x.x",
-    "angular-animate": "1.x.x",
-    "angular-aria": "1.x.x",
-    "angular-material": "1.x.x",
-    "angular-moment": "^1.x.x",
+    "@angular/animations": "4.2.x",
+    "@angular/cdk": "*",
+    "@angular/common": "^4.2.x",
+    "@angular/compiler": "^4.2.x",
+    "@angular/core": "^4.2.x",
+    "@angular/forms": "^4.2.x",
+    "@angular/http": "^4.2.x",
+    "@angular/material": "*",
+    "@angular/platform-browser": "4.2.x",
 
-    "angular-ui-router": "^1.0.0-rc",
-    "lodash": "4.x.x"
+    "lodash": "4.x.x",
+    "moment": "2.x.x",
+    "rxjs": "5.x.x",
+    "zone.js": "0.8.x"
   }
 }

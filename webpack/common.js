@@ -41,11 +41,15 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js'],
+    extensions: ['.js', '.ts'],
   },
   target: 'web',
   module: {
     loaders: [
+      {
+        test: /\.ts?$/,
+        loader: 'ts-loader'
+      },
       {
         test: /\.scss$/,
         loader: extractApp.extract([
