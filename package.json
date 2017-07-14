@@ -2,22 +2,18 @@
   "name": "angular-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "",
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint",
     "webpack": "./node_modules/.bin/webpack",
     "webpack:server": "./node_modules/.bin/webpack-dev-server",
-
     "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
     "clean": "npm cache clean && rm -rf -- doc coverage build",
-
     "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
     "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
     "build": "npm run clean && npm run webpack -- --config ./webpack/prod",
     "build:prod": "npm run clean &&  npm run webpack -- -p --config ./webpack/prod",
 
-    "lint": "npm run eslint -- src/",
-    "lint:travis": "npm run eslint -- src/",
+    "lint": "tslint -c tslint.json src/",
 
     "test": "karma start",
     "test:debug": "karma start karma.conf.js --log-level=debug --single-run=False",
@@ -33,16 +29,13 @@
   "license": "MIT",
   "repository": "https://github.com/chyzwar/angular-starter",
   "devDependencies": {
-    "karma": "1.x.x",
-    "karma-chai": "*",
-    "karma-mocha": "1.x.x",
-    "karma-mocha-reporter": "1.x.x",
-    "karma-chrome-launcher": "1.x.x",
+    "karma": "1.7.x",
+    "karma-jasmine": "1.x.x",
+    "jasmine-core": "2.x.x",
+    "karma-chrome-launcher": "2.x.x",
     "karma-firefox-launcher": "1.x.x",
-    "karma-sourcemap-loader": "^0.3.4",
-    "karma-webpack": "1.x.x",
-    "mocha": "3.x.x",
-    "chai": "3.x.x",
+    "karma-sourcemap-loader": "0.3.x",
+    "karma-webpack": "2.x.x",
 
     "ts-loader": "*",
     "node-sass": "*",
@@ -55,20 +48,19 @@
     "file-loader": "*",
 
     "webpack": "3.x.x",
-    "webpack-merge": "*",
+    "webpack-merge": "4.x.x",
     "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
-    "ng-annotate-webpack-plugin": "*",
-    "extract-text-webpack-plugin": "^2.x.x"
+    "extract-text-webpack-plugin": "3.x.x"
   },
   "dependencies": {
     "@angular/animations": "4.2.x",
     "@angular/cdk": "*",
-    "@angular/common": "^4.2.x",
-    "@angular/compiler": "^4.2.x",
-    "@angular/core": "^4.2.x",
-    "@angular/forms": "^4.2.x",
-    "@angular/http": "^4.2.x",
+    "@angular/common": "4.2.x",
+    "@angular/compiler": "4.2.x",
+    "@angular/core": "4.2.x",
+    "@angular/forms": "4.2.x",
+    "@angular/http": "4.2.x",
     "@angular/material": "*",
     "@angular/platform-browser": "4.2.x",
 

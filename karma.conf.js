@@ -15,7 +15,7 @@ module.exports = (config) => {
      *
      * See: https://npmjs.org/browse/keyword/karma-adapter
      */
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['jasmine'],
 
     /**
      * Avalilable reporters
