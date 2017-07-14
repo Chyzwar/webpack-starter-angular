@@ -53,7 +53,7 @@
     "url-loader": "*",
     "file-loader": "*",
 
-    "webpack": "2.x.x",
+    "webpack": "3.x.x",
     "webpack-merge": "*",
     "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
