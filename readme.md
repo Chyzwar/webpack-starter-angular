@@ -1,7 +1,8 @@
 Webpack Starter for Angluar 1.x
 ===============================
 
-What included:
+
+Branch *angular1* include:
 -------------
 
 - Webpack 2
@@ -15,6 +16,11 @@ What included:
 Assumptions:
 -----------
 
-Babel is not included, Most modern browsers have 93%+ in ES6 coverege. This projest focus no cutting edge and is mostly written in ES6.
+Babel is not included, Most modern browsers have 93%+ in ES6 coverege. This projest focus on cutting edge and is mostly written in ES6.
 If you are building an application that NEED to support browsers before IE Edge you can always add babel loader.
 
+
+Branch *angular4* includes:
+--------------------------
+- Webapack3
+- Material
