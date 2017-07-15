@@ -9,8 +9,13 @@ const extractVendor = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].cs
 
 module.exports = {
   entry: {
-    polyfills: './src/polyfills.module.js',
-    app: './src/app.module.js'
+    /**
+     * The point or points to enter the application.
+     *
+     * @see https://webpack.js.org/configuration/entry-context/#entry
+     */
+    polyfills: './src/app.polyfills.ts',
+    app: './src/app.module.ts'
   },
   output: {
     /**
@@ -39,7 +44,7 @@ module.exports = {
      * @see: https://webpack.js.org/configuration/resolve/#resolve-modules
      */
     modules: [
-      path.resolve('src')
+      path.resolve('src'),
       path.resolve('node_modules'),
     ],
 

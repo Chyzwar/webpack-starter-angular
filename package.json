@@ -7,20 +7,18 @@
     "webpack": "./node_modules/.bin/webpack",
     "webpack:server": "./node_modules/.bin/webpack-dev-server",
     "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
-    "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
+    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
     "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
     "build": "npm run clean && npm run webpack -- --config ./webpack/prod",
     "build:prod": "npm run clean &&  npm run webpack -- -p --config ./webpack/prod",
-
     "lint": "tslint -c tslint.json src/",
-
     "test": "karma start",
     "test:debug": "karma start karma.conf.js --log-level=debug --single-run=False",
     "test:watch": "karma start karma.conf.js --auto-watch=true --single-run=False"
   },
   "keywords": [
     "bundle",
-    "bolerplate",
+    "boilerplate",
     "webpack3",
     "angular4"
   ],
@@ -37,6 +35,7 @@
     "karma-webpack": "2.x.x",
 
     "ts-loader": "*",
+    "tslint-loader": "*",
     "node-sass": "*",
     "raw-loader": "*",
     "css-loader": "*",
@@ -50,11 +49,17 @@
     "webpack-merge": "4.x.x",
     "webpack-dev-server": "2.x.x",
     "html-webpack-plugin": "*",
-    "extract-text-webpack-plugin": "3.x.x"
+    "extract-text-webpack-plugin": "3.x.x",
+
+    "typescript": "2.2.x",
+    "tslint": "4.x.x",
+    "@types/jasmine": "2.x.x"
   },
   "dependencies": {
+    "@angular/core": "4.2.x",
     "@angular/animations": "4.2.x",
     "@angular/cdk": "*",
+    "@angular/router": "4.2.x",
     "@angular/common": "4.2.x",
     "@angular/compiler": "4.2.x",
     "@angular/core": "4.2.x",
