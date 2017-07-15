@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractApp = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' });
 const extractVendor = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
@@ -44,8 +45,8 @@ module.exports = {
      * @see: https://webpack.js.org/configuration/resolve/#resolve-modules
      */
     modules: [
-      path.resolve('src'),
       path.resolve('node_modules'),
+      path.resolve('src'),
     ],
 
     /**
@@ -119,6 +120,18 @@ module.exports = {
     ],
   },
   plugins: [
+    /**
+    * Plugin: CopyWebpackPlugin
+    * Description: Copy files and directories in webpack.
+    *
+    * Copies project static assets.
+    *
+    * See: https://www.npmjs.com/package/copy-webpack-plugin
+    */
+    new CopyWebpackPlugin([
+      { from: 'src/assets', to: 'assets' },
+      { from: 'src/meta', to 'meta'}
+    ]
     /**
      * Register extract CSS and SCSS plugins,
      * Assume that application style will be written on sass
