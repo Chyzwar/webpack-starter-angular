@@ -4,11 +4,11 @@ Webpack Starter for Angluar 1.x
 
 Branch *angular1* include:
 -------------
-
+- Angular 1.x
 - Webpack 2
 - ngMaterial, uiRouter, uiGrid
 - SASS
-- Testing 
+- Testing
   - Karma
   - Mocha
 
@@ -22,5 +22,9 @@ If you are building an application that NEED to support browsers before IE Edge 
 
 Branch *angular4* includes:
 --------------------------
+- Angular 4.x
 - Webapack3
 - Material
+- Testing
+  - Karma
+  - Jasmine

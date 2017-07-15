@@ -23,7 +23,7 @@ module.exports = (config) => {
      *
      * See: https://npmjs.org/browse/keyword/karma-reporter
      */
-    reporters: ['mocha'],
+    reporters: ['dots'],
 
 
     /**
@@ -32,6 +32,7 @@ module.exports = (config) => {
      * @type {Array}
      */
     files: [
+      { pattern: './src/assets/**/*', watched: false, included: false, served: true, nocache: false }
       { pattern: 'spec.bundle.js', watched: false },
     ],
 
@@ -47,7 +48,7 @@ module.exports = (config) => {
      *
      * See: https://npmjs.org/browse/keyword/karma-preprocessor
      */
-    preprocessors: { 'spec.bundle.js': ['webpack', 'sourcemap'] },
+    preprocessors: { 'spec.bundle.js': ['coverage', 'webpack', 'sourcemap'] },
 
     /**
      * Webpack preprocessor confguration

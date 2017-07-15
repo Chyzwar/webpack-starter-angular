@@ -7,7 +7,6 @@
     "webpack": "./node_modules/.bin/webpack",
     "webpack:server": "./node_modules/.bin/webpack-dev-server",
     "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
-    "clean": "npm cache clean && rm -rf -- doc coverage build",
     "start": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
     "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
     "build": "npm run clean && npm run webpack -- --config ./webpack/prod",
