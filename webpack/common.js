@@ -9,39 +9,46 @@ const extractVendor = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].cs
 
 module.exports = {
   entry: {
-    client: './src/app.js',
-    common: [
-      'angular',
-      'angular-ui-router',
-      'angular-animate',
-      'angular-aria',
-      'angular-material',
-    ],
+    polyfills: './src/polyfills.module.js',
+    app: './src/app.module.js'
   },
   output: {
     /**
      * The output directory as absolute path (required).
      *
-     * See: http://webpack.github.io/docs/configuration.html#output-path
+     * @see: https://webpack.js.org/configuration/output/#output-path
      */
-    path: path.join(__dirname, './build/'),
+    path: path.resolve('build'),
     /**
      * Specifies the name of each output file on disk.
      *
-     * See: http://webpack.github.io/docs/configuration.html#output-filename
+     * @see: https://webpack.js.org/configuration/output/#output-filename
      */
-    filename: 'js/[name].[hash].js',
+    filename: '[name].[hash].js',
     /**
-     * The filename of the SourceMaps for the JavaScript files.
-     * They are inside the output.path directory.
+     * Configure how source maps are named
      *
-     * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
+     * @see: https://webpack.js.org/configuration/output/#output-sourcemapfilename
      */
-    sourceMapFilename: 'js/[name].[hash].map',
+    sourceMapFilename: '[name].[hash].map',
   },
   resolve: {
-    modules: ['node_modules'],
-    extensions: ['.js', '.ts'],
+    /**
+     * Roots for module resolution
+     *
+     * @see: https://webpack.js.org/configuration/resolve/#resolve-modules
+     */
+    modules: [
+      path.resolve('src')
+      path.resolve('node_modules'),
+    ],
+
+    /**
+    * An array of extensions that should be used to resolve modules.
+    *
+    * @see: https://webpack.js.org/configuration/resolve/#resolve-extensions
+    */
+    extensions: ['.js', '.ts', '.json'],
   },
   target: 'web',
   module: {
