@@ -1,7 +1,6 @@
 import { enableDebugTools, disableDebugTools, platformBrowser} from '@angular/platform-browser';
 import { ApplicationRef, enableProdMode} from '@angular/core';
-import { AppModuleFactory } from '../build/app/app.module.ngfactory';
-
+import { AppModuleFactory } from '../compiled/src/app/app.module.ngfactory';
 
 let bootstrap : Function;
 

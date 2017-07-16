@@ -23,4 +23,7 @@ module.exports = webpackMerge(commonConfig, {
       },
     }),
   ],
+  devServer:{
+
+  }
 });

@@ -22,7 +22,7 @@ module.exports = {
     /**
      * Angualar Application entry point
      */
-    main: './src/main.ts'
+    main: './src/main.jit.ts'
   },
   output: {
     /**
@@ -67,7 +67,10 @@ module.exports = {
     loaders: [
       {
         test: /\.ts?$/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
+        query: {
+          transpileOnly: true,
+        }
       },
       {
         test: /\.scss$/,
