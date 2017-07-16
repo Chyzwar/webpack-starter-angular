@@ -5,18 +5,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const extractApp = new ExtractTextPlugin({ filename: 'styles/app.[hash].css' });
-const extractVendor = new ExtractTextPlugin({ filename: 'styles/vendor.[hash].css' });
+const extractApp = new ExtractTextPlugin({ filename: 'app.[hash].css' });
+const extractVendor = new ExtractTextPlugin({ filename: 'vendor.[hash].css' });
 
 module.exports = {
+  /**
+   * The point or points to enter the application.
+   *
+   * @see https://webpack.js.org/configuration/entry-context/#entry
+   */
   entry: {
     /**
-     * The point or points to enter the application.
-     *
-     * @see https://webpack.js.org/configuration/entry-context/#entry
+     * Polyfills for browser and angular
      */
-    polyfills: './src/app.polyfills.ts',
-    app: './src/app.module.ts'
+    polyfills: './src/polyfills.ts',
+    /**
+     * Angualar Application entry point
+     */
+    main: './src/main.ts'
   },
   output: {
     /**
@@ -86,7 +92,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 65000,
-          name: 'fonts/[name].[hash].[ext]',
+          name: '[name].[hash].[ext]',
           minetype: 'application/vnd.ms-fontobject',
         },
       },
@@ -95,7 +101,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 65000,
-          name: 'fonts/[name].[hash].[ext]',
+          name: '[name].[hash].[ext]',
           mimetype: 'application/font-woff',
         },
       },
@@ -104,7 +110,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 65000,
-          name: 'fonts/[name].[hash].[ext]',
+          name: '[name].[hash].[ext]',
           minetype: 'application/x-font-ttf',
         },
       },
@@ -121,6 +127,15 @@ module.exports = {
   },
   plugins: [
     /**
+     * Angular workaround using ContextReplacementPlugin
+     *
+     * @issue: https://github.com/angular/angular/issues/11580
+     */
+    new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)@angular/,
+      path.resolve('src')
+    ),
+    /**
     * Plugin: CopyWebpackPlugin
     * Description: Copy files and directories in webpack.
     *
@@ -130,8 +145,7 @@ module.exports = {
     */
     new CopyWebpackPlugin([
       { from: 'src/assets', to: 'assets' },
-      { from: 'src/meta', to 'meta'}
-    ]
+    ]),
     /**
      * Register extract CSS and SCSS plugins,
      * Assume that application style will be written on sass
@@ -163,7 +177,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
       minChunks: 2,
-      filename: 'js/common.[hash].js',
+      filename: 'common.[hash].js',
     }),
   ],
 };

@@ -1,7 +1,5 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
-const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
-
 const commonConfig = require('./common.js');
 
 /**

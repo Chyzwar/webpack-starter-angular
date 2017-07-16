@@ -52,7 +52,9 @@
 
     "typescript": "2.2.x",
     "tslint": "4.x.x",
-    "@types/jasmine": "2.x.x"
+    "@types/jasmine": "2.x.x",
+    "@types/lodash": "4.x.x",
+    "@types/moment": "2.x.x"
   },
   "dependencies": {
     "@angular/core": "4.2.x",
