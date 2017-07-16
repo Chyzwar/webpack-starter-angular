@@ -13,6 +13,8 @@ module.exports = webpackMerge(commonConfig, {
     /**
      * Plugin: DefinePlugin
      * Define variables, strigify in source code
+     *
+     * NOTE: when adding more properties make sure you include them in src/typings.d.ts
      * @type {String}
      */
     new webpack.DefinePlugin({

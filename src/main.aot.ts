@@ -2,9 +2,10 @@ import { enableDebugTools, disableDebugTools, platformBrowser} from '@angular/pl
 import { ApplicationRef, enableProdMode} from '@angular/core';
 import { AppModuleFactory } from '../build/app/app.module.ngfactory';
 
+
 let bootstrap : Function;
 
-// ------------------------------- DEV -------------------------------- //
+// ------------------------------- PROD ------------------------------- //
 if(NODE_ENV === 'production'){
   /**
    * Disable debug
@@ -29,7 +30,7 @@ if(NODE_ENV === 'production'){
 // -------------------------------------------------------------------- //
 
 
-// ------------------------------- PROD ------------------------------- //
+// ------------------------------- DEV -------------------------------- //
 if(NODE_ENV === 'developement'){
    /**
    * Enable debug
