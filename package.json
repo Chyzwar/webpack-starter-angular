@@ -42,6 +42,7 @@
     "style-loader": "*",
     "url-loader": "*",
     "file-loader": "*",
+    "html-loader": "*",
 
     "webpack": "3.x.x",
     "webpack-merge": "4.x.x",
@@ -49,8 +50,8 @@
     "html-webpack-plugin": "*",
     "copy-webpack-plugin": "4.x.x",
     "ngc-webpack": "3.x.x",
-
     "typescript": "2.2.x",
+
     "tslint": "4.x.x",
     "@types/jasmine": "2.x.x",
     "@types/lodash": "4.x.x",

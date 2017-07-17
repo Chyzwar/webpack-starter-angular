@@ -12,9 +12,13 @@ if(NODE_ENV === 'production'){
    * @type {NgModuleRef} modRef
    */
   const disableDebug = (modRef) => {
-    modRef
+    const appRef = modRef.injector.get(ApplicationRef);
+
+    appRef
       .components
       .forEach(disableDebugTools);
+
+    return modRef;
   }
 
   bootstrap = function bootstrap(): Promise<any>{
@@ -37,9 +41,13 @@ if(NODE_ENV === 'developement'){
    * @param {NgModuleRef} modRef
    */
   const enableDebug = (modRef) => {
-    modRef
+    const appRef = modRef.injector.get(ApplicationRef);
+
+    appRef
       .components
       .forEach(enableDebugTools);
+
+    return modRef;
   }
 
 

@@ -66,6 +66,7 @@ module.exports = {
         loader: 'ts-loader',
         query: {
           transpileOnly: true,
+          sourceMap: true,
         }
      },
       {
@@ -85,9 +86,6 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html-loader',
-        query:{
-          exportAsEs6Default: true
-        }
       },
       {
         test: /\.eot$/,
@@ -146,6 +144,8 @@ module.exports = {
     ]),
     /**
      * HtmlWebpackPlugin configuration
+     *
+     * @see https://webpack.js.org/plugins/html-webpack-plugin/
      */
     new HtmlWebpackPlugin({
       title: 'Webpack Starter Angular',
@@ -162,7 +162,7 @@ module.exports = {
      * All modules from common entry will be extracted, also
      * If module is shared by 2 childrens it will get extracted to commons.
      *
-     * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
+     * @see: https://webpack.js.org/plugins/commons-chunk-plugin/
     */
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
