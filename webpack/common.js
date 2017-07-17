@@ -2,11 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-const extractApp = new ExtractTextPlugin({ filename: 'app.[hash].css' });
-const extractVendor = new ExtractTextPlugin({ filename: 'vendor.[hash].css' });
 
 module.exports = {
   /**
@@ -60,7 +56,7 @@ module.exports = {
     *
     * @see: https://webpack.js.org/configuration/resolve/#resolve-extensions
     */
-    extensions: ['.js', '.ts', '.json', '.html', '.css'],
+    extensions: ['.js', '.ts', '.json', '.html', '.css', '.scss'],
   },
   target: 'web',
   module: {
@@ -74,14 +70,17 @@ module.exports = {
      },
       {
         test: /\.scss$/,
-        loader: extractApp.extract([
-          { loader: 'css-loader', query: { sourceMap: true } },
-          { loader: 'sass-loader', query: { sourceMap: true } },
-        ]),
+        use: [
+          {loader: 'raw-loader'},
+          {loader: 'sass-loader'}
+        ]
       },
       {
         test: /\.css$/,
-        loader: 'raw-loader',
+        use: [
+          {loader: 'style-loader'},
+          {loader: 'css-loader'}
+        ]
       },
       {
         test: /\.html$/,
@@ -145,14 +144,6 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'src/assets', to: 'assets' },
     ]),
-    /**
-     * Register extract CSS and SCSS plugins,
-     * Assume that application style will be written on sass
-     * Vandor CSS like ui-grid will be linked as CSS
-     */
-    extractApp,
-    extractVendor,
-
     /**
      * HtmlWebpackPlugin configuration
      */
