@@ -60,7 +60,7 @@ module.exports = {
     *
     * @see: https://webpack.js.org/configuration/resolve/#resolve-extensions
     */
-    extensions: ['.js', '.ts', '.json'],
+    extensions: ['.js', '.ts', '.json', '.html', '.css'],
   },
   target: 'web',
   module: {
@@ -71,7 +71,7 @@ module.exports = {
         query: {
           transpileOnly: true,
         }
-      },
+     },
       {
         test: /\.scss$/,
         loader: extractApp.extract([
@@ -81,14 +81,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: extractVendor.extract([
-          { loader: 'css-loader',
-            query: {
-              sourceMap: true,
-              minimize: true,
-            },
-          },
-        ]),
+        loader: 'raw-loader',
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        query:{
+          exportAsEs6Default: true
+        }
       },
       {
         test: /\.eot$/,
@@ -121,10 +121,6 @@ module.exports = {
         test: /\.svg$/,
         loader: 'url-loader',
         query: { limit: 10000, minetype: 'image/svg+xml' },
-      },
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { enableDebugTools, disableDebugTools, platformBrowser} from '@angular/platform-browser';
+import { enableDebugTools, disableDebugTools, platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { ApplicationRef, enableProdMode} from '@angular/core';
 import { AppModule } from './app/app.module';
 
@@ -20,7 +20,7 @@ if(NODE_ENV === 'production'){
   bootstrap = function bootstrap(): Promise<any>{
     document.removeEventListener('DOMContentLoaded', bootstrap, false);
 
-    return platformBrowser()
+    return platformBrowserDynamic()
       .bootstrapModule(AppModule)
       .then(modRef => disableDebug(modRef))
       .then(() => enableProdMode());
@@ -30,7 +30,7 @@ if(NODE_ENV === 'production'){
 
 
 // ------------------------------- DEV -------------------------------- //
-if(NODE_ENV === 'developement'){
+if(NODE_ENV === 'development'){
    /**
    * Enable debug
    *
@@ -46,9 +46,9 @@ if(NODE_ENV === 'developement'){
   bootstrap = function bootstrap() : Promise<any>{
     document.removeEventListener('DOMContentLoaded', bootstrap, false);
 
-    return platformBrowser()
-      .bootstrapModule(AppModule)
-      .then(modRef => enableDebug(modRef))
+    return platformBrowserDynamic()
+      .bootstrapModule(AppModule);
+      // .then(modRef => enableDebug(modRef))
   }
 }
 // -------------------------------------------------------------------- //

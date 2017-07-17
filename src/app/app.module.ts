@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent }  from './app.component';
+import { CreateComponent } from './create/create.component';
+import { DetailsComponent } from './details/details.component';
+import { SearchComponent } from './search/search.component';
+
 import { appRoutes } from './app.routes'
 
 
@@ -18,7 +22,12 @@ const AppRoutes = RouterModule.forRoot(
     BrowserAnimationsModule,
     AppRoutes
    ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    CreateComponent,
+    DetailsComponent,
+    SearchComponent,
+   ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
