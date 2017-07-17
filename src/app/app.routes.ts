@@ -5,7 +5,7 @@ import {DetailsComponent} from './details/details.component';
 import {CreateComponent} from './create/create.component';
 
 
-export const appRoutes: Routes = [
+export const AppModuleRoutes: Routes = [
   { path: '',        component: SearchComponent },
   { path: 'home',    component: SearchComponent },
   { path: 'details', component: DetailsComponent },

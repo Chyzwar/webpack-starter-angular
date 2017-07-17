@@ -7,12 +7,12 @@ import { AppComponent }  from './app.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
-
-import { appRoutes } from './app.routes'
+import { AppModuleRoutes } from './app.routes'
+import { MaterialModule } from './material.module';
 
 
 const AppRoutes = RouterModule.forRoot(
-  appRoutes,
+  AppModuleRoutes,
   {enableTracing: true}
 );
 
@@ -20,7 +20,8 @@ const AppRoutes = RouterModule.forRoot(
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutes
+    AppRoutes,
+    MaterialModule
    ],
   declarations: [
     AppComponent,
@@ -28,6 +29,6 @@ const AppRoutes = RouterModule.forRoot(
     DetailsComponent,
     SearchComponent,
    ],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
