@@ -8,10 +8,8 @@ import { AppComponent }  from './app.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
-import { RoutingModule } from './routing.module';
-import { MaterialModule } from './material.module';
+import { AppRoutingModule } from './app-routing.module';
 import { SharedModules } from './+shared/shared.module';
-
 
 @NgModule({
   imports: [
@@ -20,8 +18,7 @@ import { SharedModules } from './+shared/shared.module';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    RoutingModule,
-    MaterialModule
+    AppRoutingModule,
    ],
   declarations: [
     AppComponent,
