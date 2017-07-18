@@ -56,8 +56,8 @@ if(NODE_ENV === 'development'){
     document.removeEventListener('DOMContentLoaded', bootstrap, false);
 
     return platformBrowserDynamic()
-      .bootstrapModule(AppModule);
-      // .then(modRef => enableDebug(modRef))
+      .bootstrapModule(AppModule)
+      .then(modRef => enableDebug(modRef))
   }
 }
 // -------------------------------------------------------------------- //

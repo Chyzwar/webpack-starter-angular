@@ -24,7 +24,7 @@ module.exports = {
      */
     polyfills: './src/polyfills.ts',
     /**
-     * Angualar Application entry point
+     * Angualar Application main entry point
      */
     main: './src/main.jit.ts'
   },
