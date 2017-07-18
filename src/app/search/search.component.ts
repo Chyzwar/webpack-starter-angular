@@ -31,6 +31,7 @@ export class SearchComponent implements OnInit{
   @ViewChild('filter') filter: ElementRef;
 
   ngOnInit() {
+    console.log("init");
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
 
     Observable.fromEvent(this.filter.nativeElement, 'keyup')

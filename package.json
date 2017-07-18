@@ -7,11 +7,9 @@
     "start": "webpack-dev-server --config ./webpack/dev",
     "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
     "build": "webpack --config ./webpack/prod",
-    "build:prod": "npm run clean &&  npm run webpack -- -p --config ./webpack/prod",
+    "build:prod": "webpack -config ./webpack/prod",
     "lint": "tslint -c tslint.json src/",
-    "test": "karma start",
-    "test:debug": "karma start karma.conf.js --log-level=debug --single-run=False",
-    "test:watch": "karma start karma.conf.js --auto-watch=true --single-run=False"
+    "test": "karma start"
   },
   "keywords": [
     "bundle",
@@ -49,8 +47,9 @@
     "html-webpack-plugin": "*",
     "copy-webpack-plugin": "4.x.x",
     "ngc-webpack": "3.x.x",
-    "typescript": "2.2.x",
+    "extract-text-webpack-plugin": "2.x.x",
 
+    "typescript": "2.2.x",
     "tslint": "4.x.x",
     "@types/jasmine": "2.x.x",
     "@types/lodash": "4.x.x"

@@ -6,45 +6,44 @@ const commonConfig = require('./common.js');
  * Merge common config with prod specific configuration
  * @type {object}
  */
-module.exports = webpackMerge(commonConfig, {
+ module.exports = webpackMerge(commonConfig, {
   /**
    * In memmory budles/files
    */
-  cache: false,
+   cache: false,
   /**
    * Developer tool to enhance debugging.
    *
    * The 'source-map' settings is meant to be used in production only. It
    * splits the source map in a separate file and it is slow to compute.
    *
-   * See: http://webpack.github.io/docs/configuration.html#devtool
-   * See: https://github.com/webpack/docs/wiki/build-performance#sourcemaps
+   * see:
    */
-  devtool: 'source-map',
+   devtool: 'source-map',
 
   /**
    * Add additional plugins to the compiler.
    *
-   * See: http://webpack.github.io/docs/configuration.html#plugins
+   * @see:
    */
-  plugins: [
-    /**
-     * Plugin: Agressive-Merging
-     * Description:
-     *
-     * @see  https://webpack.js.org/plugins/aggressive-splitting-plugin/
-     */
-    new webpack.optimize.AggressiveSplittingPlugin({
-      minSizeReduce: 1.5,
-      moveToParents: true,
-    }),
+   plugins: [
     /**
      * Plugin: UglifyJsPlugin
      * Description: Minimize all JavaScript output of chunks.
      *
-     * see: https://github.com/webpack-contrib/uglifyjs-webpack-plugin
+     * @see: https://github.com/webpack-contrib/uglifyjs-webpack-plugin
      */
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: {
+        screw_ie8: true,
+        keep_fnames: true
+      },
+      compress: {
+        screw_ie8: true
+      },
+      comments: false
+    }),
     /**
      * Plugin: DefinePlugin
      *

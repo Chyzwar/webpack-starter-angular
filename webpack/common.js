@@ -3,6 +3,14 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+// const extractCSS = new ExtractTextPlugin('[name]-css.css');
+      // {
+      //   test: /\.css$/,
+      //   use: extractCSS.extract([ 'css-loader', 'postcss-loader' ])
+      // },
+      //
 
 module.exports = {
   /**
@@ -78,10 +86,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'}
-        ]
+        use: ExtractTextPlugin.extract(
+          {
+            fallback: "style-loader",
+            use: "css-loader"
+          }
+        )
       },
       {
         test: /\.html$/,
@@ -122,6 +132,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new ExtractTextPlugin("styles.css"),
     /**
      * Angular workaround using ContextReplacementPlugin
      *
