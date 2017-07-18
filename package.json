@@ -4,10 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "analyze": "npm run webpack -- --json | webpack-bundle-size-analyzer",
-    "start": "webpack-dev-server --hot --inline --port 3000 --content-base build/ --config ./webpack/dev",
+    "start": "webpack-dev-server --config ./webpack/dev",
     "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
-    "build": "npm run clean && npm run webpack -- --config ./webpack/prod",
+    "build": "webpack --config ./webpack/prod",
     "build:prod": "npm run clean &&  npm run webpack -- -p --config ./webpack/prod",
     "lint": "tslint -c tslint.json src/",
     "test": "karma start",
@@ -54,8 +53,7 @@
 
     "tslint": "4.x.x",
     "@types/jasmine": "2.x.x",
-    "@types/lodash": "4.x.x",
-    "@types/moment": "2.x.x"
+    "@types/lodash": "4.x.x"
   },
   "dependencies": {
     "@angular/core": "4.2.x",
@@ -69,6 +67,7 @@
     "@angular/material": "*",
     "@angular/platform-browser": "4.2.x",
     "@angular/platform-browser-dynamic": "4.2.x",
+    "@angular/compiler-cli": "4.2.x",
 
     "lodash": "4.x.x",
     "moment": "2.x.x",

@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit{
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
+
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
         .debounceTime(150)
         .distinctUntilChanged()
