@@ -2,6 +2,10 @@
   "name": "angular-starter",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">= 4.2.1",
+    "npm": ">= 3"
+  },
   "main": "",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/dev",
