@@ -1,83 +1,113 @@
-const webpackConfig = require('./webpack.test');
+const webpackConfig = require('./webpack/test');
 
 
 module.exports = (config) => {
+  /**
+   * Karma coniguration
+   *
+   * @see http://karma-runner.github.io/1.0/config/configuration-file.html
+   * @type {Object}
+   */
   config.set({
     /**
+     * Enable or disable watching files and executing the tests whenever one of these files changes.
+     *
+     * CLI: --auto-watch, --no-auto-watch
+     * @default true
+     */
+    autoWatch: false,
+    /**
+     * Karma how long to wait (in milliseconds) after any changes have occurred
+     * @default 250
+     */
+    autoWatchBatchDelay: 250,
+    /**
      * Base path used to resolve all patterns
-     * @type {String}
+     * @default ''
      */
     basePath: '',
-
     /**
-     * Available frameworks, we use mocha
-     * @type {Array}
+     * Available frameworks.
      *
-     * See: https://npmjs.org/browse/keyword/karma-adapter
+     * @see https://npmjs.org/browse/keyword/karma-adapter
      */
     frameworks: ['jasmine'],
-
     /**
      * Avalilable reporters
-     * @type {Array}
      *
-     * See: https://npmjs.org/browse/keyword/karma-reporter
+     * @see https://npmjs.org/browse/keyword/karma-reporter
      */
     reporters: ['dots'],
-
-
     /**
      * List of patterns to be loaded into browser
-     * Spec bundle will load all tests '.spec'
-     * @type {Array}
+     * src/assets will serve static assets
+     * spec.bundle will load all tests '*.spec'
+     *
+     * @see: http://karma-runner.github.io/1.0/config/files.html
      */
     files: [
-      { pattern: './src/assets/**/*', watched: false, included: false, served: true, nocache: false }
-      { pattern: 'spec.bundle.js', watched: false },
+      {
+        pattern: './src/assets/**/*',
+        watched: false,
+        included: false,
+        served: true,
+        nocache: false,
+      },
+      {
+        pattern: 'spec.bundle.js',
+        watched: false,
+        included: true,
+        served: true,
+        nocache: false,
+      },
     ],
-
     /**
      * Files to be excluded
-     * @type {Array}
      */
     exclude: [],
-
     /**
      * Preprocessing test files
-     * @type {Object}
      *
-     * See: https://npmjs.org/browse/keyword/karma-preprocessor
+     * @see: https://npmjs.org/browse/keyword/karma-preprocessor
      */
-    preprocessors: { 'spec.bundle.js': ['coverage', 'webpack', 'sourcemap'] },
-
+    preprocessors: {
+      'spec.bundle.js': ['coverage', 'webpack', 'sourcemap']
+    },
     /**
      * Webpack preprocessor confguration
-     * @type {Object}
+     *
+     * @see https://github.com/webpack-contrib/karma-webpack
      */
     webpack: webpackConfig,
-
-    webpackServer: {
+    /**
+     * Webpack Dev middleware
+     *
+     * @see https://github.com/webpack/webpack-dev-middleware
+     */
+    webpackMiddleware: {
       /**
-       * Turn off webpack info
-       * @type {Boolean}
+       * Turn off webpack info (only warnings and errors)
        */
       noInfo: true,
     },
 
     /**
      * Port for karma webserver
-     * @type {Number}
+     * @default 9876
      */
     port: 9876,
-
     /**
      * Enable colorize output
-     * @type {Boolean}
+     *
+     * CLI: --colors, --no-colors
+     * @default true
      */
     colors: true,
-
     /**
      * Log level configuration
+     *
+     * @default LOG_INFO
+     * CLI: --log-level debug
      *
      * Possible:
      *  LOG_DISABLE
@@ -87,27 +117,19 @@ module.exports = (config) => {
      *  LOG_DEBUG
      */
     logLevel: config.LOG_INFO,
-
-    /**
-     * Watch on changes
-     * @type {Boolean}
-     */
-    autoWatch: true,
-
     /**
      * Start selected browsers using lunchers
-     * @type {Array}
      *
-     * See: https://npmjs.org/browse/keyword/karma-launcher
+     * @see: https://npmjs.org/browse/keyword/karma-launcher
      */
     browsers: [
       'Chrome',
       'Firefox',
     ],
-
     /**
      * Run tests and Exit
-     * @type {Boolean}
+     *
+     * @default false
      */
     singleRun: false,
   });
