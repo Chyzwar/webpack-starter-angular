@@ -21,3 +21,5 @@ import 'core-js/es7/reflect';
 /** Angular dependencies **/
 import 'zone.js/dist/zone';
 import 'rxjs'
+import 'hammerjs';
+
