@@ -46,43 +46,7 @@ import {
 
 import { CdkTableModule } from '@angular/cdk';
 
-
 @NgModule({
-  imports: [
-    MdAutocompleteModule,
-    MdButtonModule,
-    MdButtonToggleModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdChipsModule,
-    MdCoreModule,
-    MdDatepickerModule,
-    MdDialogModule,
-    MdExpansionModule,
-    MdGridListModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdTooltipModule,
-
-    CdkTableModule,
-   ],
   exports: [
     MdAutocompleteModule,
     MdButtonModule,
@@ -116,7 +80,7 @@ import { CdkTableModule } from '@angular/cdk';
     MdToolbarModule,
     MdTooltipModule,
 
-    CdkTableModule,
+    CdkTableModule
   ],
 })
 export class MaterialModule { }

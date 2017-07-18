@@ -1,5 +1,6 @@
-import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MdSort } from '@angular/material';
 import { DataSource } from '@angular/cdk';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -20,27 +21,20 @@ import style from './search.component.scss';
   template,
   styles: [style],
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent implements OnInit, AfterViewInit{
   constructor(
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private changeDetector: ChangeDetectorRef
   ) {}
 
+  displayedColumns = ['userId', 'userName', 'progress', 'color'];
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
 
-  @ViewChild('filter') filter: ElementRef;
+  @ViewChild(MdSort) sort: MdSort;
 
   ngOnInit() {
-    console.log("init");
-    this.dataSource = new ExampleDataSource(this.exampleDatabase);
-
-    Observable.fromEvent(this.filter.nativeElement, 'keyup')
-        .debounceTime(150)
-        .distinctUntilChanged()
-        .subscribe(() => {
-          if (!this.dataSource) { return; }
-          this.dataSource.filter = this.filter.nativeElement.value;
-        });
+    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.sort);
   }
 }
 
@@ -58,6 +52,7 @@ export interface UserData {
   color: string;
 }
 
+/** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
   /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
@@ -98,11 +93,7 @@ export class ExampleDatabase {
  * should be rendered.
  */
 export class ExampleDataSource extends DataSource<any> {
-  _filterChange = new BehaviorSubject('');
-  get filter(): string { return this._filterChange.value; }
-  set filter(filter: string) { this._filterChange.next(filter); }
-
-  constructor(private _exampleDatabase: ExampleDatabase) {
+  constructor(private _exampleDatabase: ExampleDatabase, private _sort: MdSort) {
     super();
   }
 
@@ -110,16 +101,36 @@ export class ExampleDataSource extends DataSource<any> {
   connect(): Observable<UserData[]> {
     const displayDataChanges = [
       this._exampleDatabase.dataChange,
-      this._filterChange,
+      this._sort.mdSortChange,
     ];
 
     return Observable.merge(...displayDataChanges).map(() => {
-      return this._exampleDatabase.data.slice().filter((item: UserData) => {
-        let searchStr = (item.name + item.color).toLowerCase();
-        return searchStr.indexOf(this.filter.toLowerCase()) != -1;
-      });
+      return this.getSortedData();
     });
   }
 
   disconnect() {}
+
+  /** Returns a sorted copy of the database data. */
+  getSortedData(): UserData[] {
+    const data = this._exampleDatabase.data.slice();
+    if (!this._sort.active || this._sort.direction == '') { return data; }
+
+    return data.sort((a, b) => {
+      let propertyA: number|string = '';
+      let propertyB: number|string = '';
+
+      switch (this._sort.active) {
+        case 'userId': [propertyA, propertyB] = [a.id, b.id]; break;
+        case 'userName': [propertyA, propertyB] = [a.name, b.name]; break;
+        case 'progress': [propertyA, propertyB] = [a.progress, b.progress]; break;
+        case 'color': [propertyA, propertyB] = [a.color, b.color]; break;
+      }
+
+      let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
+      let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
+
+      return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
+    });
+  }
 }
