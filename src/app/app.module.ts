@@ -10,6 +10,8 @@ import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
 import { RoutingModule } from './routing.module';
 import { MaterialModule } from './material.module';
+import { SharedModules } from './+shared/shared.module';
+
 
 @NgModule({
   imports: [
