@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./common.js');
+const path = require('path');-
 
 /**
  * Merge common config with prod specific configuration
@@ -8,19 +9,30 @@ const commonConfig = require('./common.js');
  */
  module.exports = webpackMerge(commonConfig, {
   /**
-   * In memmory budles/files
+   * Disable in-memmory budles/files
    */
-   cache: false,
+  cache: false,
   /**
    * Developer tool to enhance debugging.
    *
    * The 'source-map' settings is meant to be used in production only. It
    * splits the source map in a separate file and it is slow to compute.
    *
-   * see:
+   * @see
    */
-   devtool: 'source-map',
-
+  devtool: 'source-map',
+  /**
+   * DevServer for production build only serve
+   *
+   * @see
+   */
+  devServer: {
+    contentBase: path.resolve('build'),
+    compress: true,
+    port: 3000,
+    hot: false,
+    inline: false
+  },
   /**
    * Add additional plugins to the compiler.
    *
@@ -50,8 +62,8 @@ const commonConfig = require('./common.js');
      * Define variables, strigify in source code
      * @type {String}
      */
-    new webpack.DefinePlugin({
+     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify("production"),
-    }),
-  ],
+    })
+  ]
 });

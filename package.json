@@ -5,9 +5,11 @@
   "main": "",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack/dev",
-    "start:build": "npm run webpack:server -- --hot --inline --port 3000 --content-base build/ --config ./webpack/prod",
+    "start:build": "webpack-dev-server --config ./webpack/prod",
+
     "build": "webpack --config ./webpack/prod",
     "build:prod": "webpack -config ./webpack/prod",
+
     "lint": "tslint -c tslint.json src/",
     "test": "karma start"
   },
