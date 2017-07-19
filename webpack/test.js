@@ -10,27 +10,25 @@ commonConfig.plugins = commonConfig.plugins.slice(0, 2);
 
 /**
  * Merge common config with test specific
- * @type {object}
  */
-module.exports = webpackMerge(commonConfig, {
-  devtool: 'source-map',
-  /**
-   * Webpack is only used as preprocessor,
-   * There is no need to compile application files
-   * @type {Object}
-   */
-  entry: {},
-  output: {},
-  plugins: [
+module.exports = (env) => {
+  return webpackMerge(commonConfig, {
     /**
-     * Plugin: DefinePlugin
-     * Define variables, strigify in source code
-     * @type {String}
+     * Webpack is only used as preprocessor,
+     * There is no need to compile application files
      */
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"',
-      },
-    }),
-  ],
-});
+    entry: {},
+    output: {},
+    devtool: 'source-map',
+    plugins: [
+      /**
+       * Plugin: DefinePlugin strigify in source code
+       */
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"development"',
+        },
+      }),
+    ],
+  });
+};
