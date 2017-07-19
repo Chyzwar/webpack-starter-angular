@@ -11,6 +11,9 @@ module.exports = (env) => {
   return webpackMerge(commonConfig, {
     devtool: 'inline-source-map',
     cache: true,
+    entry: {
+      debug: './src/debug.ts',
+    },
     /**
      * DevServer Configuration
      *
