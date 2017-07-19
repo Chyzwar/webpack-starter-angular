@@ -54,7 +54,14 @@ module.exports = (config) => {
         nocache: false,
       },
       {
-        pattern: 'spec.bundle.js',
+        pattern: './src/polyfills.ts',
+        watched: false,
+        included: false,
+        served: true,
+        nocache: false,
+      },
+      {
+        pattern: './src/**/*.spec.js',
         watched: false,
         included: true,
         served: true,
@@ -71,7 +78,7 @@ module.exports = (config) => {
      * @see: https://npmjs.org/browse/keyword/karma-preprocessor
      */
     preprocessors: {
-      'spec.bundle.js': ['coverage', 'webpack', 'sourcemap']
+      '**.spec.ts': ['coverage', 'webpack', 'sourcemap']
     },
     /**
      * Webpack preprocessor confguration
@@ -130,6 +137,7 @@ module.exports = (config) => {
      * Run tests and Exit
      *
      * @default false
+     * CLI: --single-run, --no-single-run
      */
     singleRun: false,
   });
