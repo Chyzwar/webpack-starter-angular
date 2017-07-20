@@ -61,7 +61,7 @@ module.exports = (config) => {
         nocache: false,
       },
       {
-        pattern: './src/**/*.spec.js',
+        pattern: './src/**/*.spec.ts',
         watched: false,
         included: true,
         served: true,
@@ -78,7 +78,7 @@ module.exports = (config) => {
      * @see: https://npmjs.org/browse/keyword/karma-preprocessor
      */
     preprocessors: {
-      '**.spec.ts': ['coverage', 'webpack', 'sourcemap']
+      '*.spec.ts': ['coverage', 'webpack', 'sourcemap']
     },
     /**
      * Webpack preprocessor confguration

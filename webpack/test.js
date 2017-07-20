@@ -17,7 +17,9 @@ module.exports = (env) => {
      * Webpack is only used as preprocessor,
      * There is no need to compile application files
      */
-    entry: {},
+    entry: {
+      testing: './src/test.spec.ts'
+    },
     output: {},
     devtool: 'source-map',
     plugins: [
