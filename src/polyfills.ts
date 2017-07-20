@@ -1,4 +1,6 @@
-/** Polyfills IE9, IE10 and IE11 **/
+/**
+ * Polyfills IE9, IE10 and IE11 *
+ */
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
@@ -14,10 +16,14 @@ import 'core-js/es6/map';
 import 'core-js/es6/weak-map';
 import 'core-js/es6/set';
 
-/** Polyfills for modern browsers **/
+/**
+ * Polyfills for modern browsers *
+ */
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 
-/** Angular dependencies **/
+/**
+ * Angular and Material dependencies *
+ */
 import 'zone.js/dist/zone';
 import 'hammerjs';
