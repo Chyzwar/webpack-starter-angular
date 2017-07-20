@@ -7,11 +7,10 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   exports: [
-    MaterialModule
-  ],
-  declarations: [
+    MaterialModule,
     FooterComponent,
     NavigationComponent,
   ],
+  declarations: [],
 })
 export class SharedModules{};
