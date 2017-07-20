@@ -1,4 +1,4 @@
-Webpack Starter for Angluar 1.x
+Webpack Starter for Angluar 1.x/Angular4.x
 ===============================
 
 
@@ -12,7 +12,6 @@ Branch *angular1* include:
   - Karma
   - Mocha
 
-
 Assumptions:
 -----------
 
@@ -24,7 +23,11 @@ Branch *angular4* includes:
 --------------------------
 - Angular 4.x
 - Webapack3
-- Material
+- Material2
 - Testing
   - Karma
   - Jasmine
+
+Assumptions:
+-----------
+Compile Typescript to ES5 with additional polyfills, should be able to support IE11.

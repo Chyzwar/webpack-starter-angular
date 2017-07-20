@@ -3,16 +3,21 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./common');
 
+
 /**
- * Merge common config wit development specific
- * @type {object}
+ * Merge common config with development specific
+ *
+ * @see
  */
 module.exports = (env) => {
   return webpackMerge(commonConfig, {
     devtool: 'inline-source-map',
     cache: true,
+    /**
+     * Add aditional entry for zone debugging
+     */
     entry: {
-      debug: './src/debug.ts',
+      debug: './src/debug.zone.ts',
     },
     /**
      * DevServer Configuration
@@ -44,4 +49,4 @@ module.exports = (env) => {
       }),
     ],
   });
-}
+};
