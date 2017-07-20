@@ -15,8 +15,7 @@ Branch *angular1* include:
 Assumptions:
 -----------
 
-Babel is not included, Most modern browsers have 93%+ in ES6 coverege. This projest focus on cutting edge and is mostly written in ES6.
-If you are building an application that NEED to support browsers before IE Edge you can always add babel loader.
+Babel is not included, Most modern browsers have 93%+ in ES6 coverege. If you are building an application that NEED to support browsers before IE Edge you can always add babel loader.
 
 
 Branch *angular4* includes:
@@ -27,6 +26,7 @@ Branch *angular4* includes:
 - Testing
   - Karma
   - Jasmine
+  - Protractor
 
 Assumptions:
 -----------

@@ -14,7 +14,9 @@
     "build": "webpack --config ./webpack/prod",
 
     "lint": "tslint -c tslint.json src/",
-    "test": "karma start"
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "karma start",
+    "test:e2e": "protractor"
   },
   "keywords": [
     "bundle",
