@@ -20,7 +20,7 @@ import { SharedModules } from './+shared/shared.module';
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModules,
-   ],
+  ],
   declarations: [
     AppComponent,
     CreateComponent,

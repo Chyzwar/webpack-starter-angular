@@ -13,15 +13,15 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
 import template from "./search.component.html"
-import style from './search.component.scss';
+import styles from './search.component.scss';
 
 
 @Component({
   selector: "search-component",
   template,
-  styles: [style],
+  styles: [styles],
 })
-export class SearchComponent implements OnInit, AfterViewInit{
+export class SearchComponent implements OnInit{
   constructor(
     public route: ActivatedRoute,
     private changeDetector: ChangeDetectorRef
