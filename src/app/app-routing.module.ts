@@ -7,7 +7,8 @@ import { CreateComponent } from './create/create.component';
 
 
 export const appRoutes: Routes = [
-  { path: '',
+  {
+    path: '',
     pathMatch: 'full',
     component: SearchComponent
   },

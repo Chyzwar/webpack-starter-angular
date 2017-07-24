@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 
 import { FooterComponent } from './footer/footer.component';
-import { MaterialModule } from './+material/material.module';
+import { MaterialModule } from '../+material/material.module';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
-  exports: [
+  imports: [
     MaterialModule,
+  ],
+  exports: [
     FooterComponent,
     NavigationComponent,
   ],
   declarations: [],
 })
-export class SharedModules{};
+export class SharedModule{};

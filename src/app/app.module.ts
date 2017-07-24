@@ -9,7 +9,8 @@ import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModules } from './+shared/shared.module';
+import { SharedModule } from './+shared/shared.module';
+import { MaterialModule } from '+material/material.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { SharedModules } from './+shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SharedModules,
+    SharedModule,
   ],
   declarations: [
     AppComponent,
