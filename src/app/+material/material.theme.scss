@@ -8,6 +8,20 @@
 @include mat-core();
 
 /**
+ * Build indigo-pink theme
+ *
+ * @see https://github.com/angular/material2/tree/master/src/lib/core/theming
+ */
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$theme: mat-light-theme($primary, $accent);
+
+/**
+ * Include all theme styles for componets
+ */
+@include angular-material-theme($theme);
+
+/**
  * Load component mixins
  *
  * @http://sass-lang.com/guide

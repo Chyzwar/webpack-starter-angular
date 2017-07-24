@@ -88,6 +88,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: /\.component.scss$/,
         use: extractSCSS.extract({
           use: [
             {loader: "css-loader"},

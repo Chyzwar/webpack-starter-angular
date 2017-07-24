@@ -19,6 +19,7 @@ import { MaterialModule } from './+material/material.module';
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    MaterialModule,
   ],
   declarations: [
     AppComponent,
