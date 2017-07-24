@@ -6,6 +6,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
+const extractCSS  = new ExtractTextPlugin({
+  filename: 'css-extracted.[hash].css'
+});
+const extractSCSS = new ExtractTextPlugin({
+  filename: 'scss-extracted.[hash].css'
+});
+
+
 module.exports = {
   /**
    * The point or points to enter the application.
@@ -54,11 +62,11 @@ module.exports = {
     ],
 
     /**
-    * An array of extensions that should be used to resolve modules.
+    * An array of extensions that should be automaticly used to resolve modules.
     *
     * @see: https://webpack.js.org/configuration/resolve/#resolve-extensions
     */
-    extensions: ['.js', '.ts', '.json', '.html', '.css', '.scss'],
+    extensions: ['.js', '.ts'],
   },
   target: 'web',
   module: {
@@ -70,22 +78,32 @@ module.exports = {
           transpileOnly: false,
           sourceMap: true,
         }
-     },
+      },
       {
-        test: /\.scss$/,
+        test: /\.component.scss$/,
         use: [
           {loader: 'raw-loader'},
           {loader: 'sass-loader'}
         ]
       },
       {
+        test: /\.scss$/,
+        use: extractSCSS.extract({
+          use: [
+            {loader: "css-loader"},
+            {loader: "sass-loader"}
+          ],
+          fallback: "style-loader"
+        })
+      },
+      {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract(
-          {
-            fallback: "style-loader",
-            use: "css-loader"
-          }
-        )
+        use: extractCSS.extract({
+          use: [
+            {loader: "css-loader"}
+          ],
+          fallback: "style-loader",
+        })
       },
       {
         test: /\.html$/,
@@ -126,7 +144,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin("styles.[hash].css"),
+    /**
+     * Plugin: ExtractTextPlugin
+     *
+     * @see
+     */
+    extractCSS, extractSCSS,
     /**
      * Angular workaround using ContextReplacementPlugin
      *

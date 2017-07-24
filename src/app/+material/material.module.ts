@@ -1,5 +1,5 @@
 /**
- * Themes:
+ * Load default themes:
  * - deeppurple-amber.css
  * - indigo-pink.css
  * - purple-green.css
@@ -8,6 +8,9 @@
  * @see https://material.angular.io/guide/theming
  */
 import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+import './material.theme.scss';
 
 import { NgModule } from '@angular/core';
 import {

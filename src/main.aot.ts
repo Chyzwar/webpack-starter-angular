@@ -2,7 +2,7 @@ import { enableDebugTools, disableDebugTools, platformBrowser} from '@angular/pl
 import { ApplicationRef, enableProdMode} from '@angular/core';
 import { AppModuleFactory } from '../compiled/src/app/app.module.ngfactory';
 
-let bootstrap : Function;
+let bootstrap: Function;
 
 // ------------------------------- PROD ------------------------------- //
 if(NODE_ENV === 'production'){

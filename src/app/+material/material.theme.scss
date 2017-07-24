@@ -1,0 +1,16 @@
+
+/**
+ * Load SASS function required for theming
+ *
+ * @see https://material.angular.io/guide/theming
+ */
+@import '~@angular/material/theming';
+@include mat-core();
+
+/**
+ * Load component mixins
+ *
+ * @http://sass-lang.com/guide
+ */
+@import "../+shared/navigation/navigation.theme.scss";
+@include navigation-theme($theme);

@@ -3,7 +3,7 @@ import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
 import { ApplicationRef, enableProdMode} from '@angular/core';
 import { AppModule } from './app/app.module';
 
-let bootstrap : Function;
+let bootstrap: Function;
 
 // ------------------------------- PROD ------------------------------- //
 if(NODE_ENV === 'production'){

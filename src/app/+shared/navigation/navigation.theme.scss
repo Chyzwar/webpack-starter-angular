@@ -1,0 +1,17 @@
+
+@mixin navigation-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  navigation {
+    color: mat-color($primary, default-contrast);
+
+    .app-navbar {
+      background: mat-color($primary);
+    }
+  }
+}
