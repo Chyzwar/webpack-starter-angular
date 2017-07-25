@@ -173,10 +173,10 @@ module.exports = (env = {}) => {
        *
        * @see https://github.com/shlomiassaf/ngc-webpack
        */
-      new ngcWebpack.NgcWebpackPlugin({
-        disabled: aot,
-        tsConfig: path.resolve('./tsconfig.json')
-      }),
+      // new ngcWebpack.NgcWebpackPlugin({
+      //   disabled: aot,
+      //   tsConfig: path.resolve('./tsconfig.json')
+      // }),
       /**
       * Plugin: CopyWebpackPlugin
       * Description: Copy files and directories in webpack.

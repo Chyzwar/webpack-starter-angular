@@ -35,8 +35,6 @@
     "karma-webpack": "2.x.x",
     "karma-coverage": "1.x.x",
 
-
-    "tslint-loader": "*",
     "node-sass": "*",
     "raw-loader": "*",
     "css-loader": "*",

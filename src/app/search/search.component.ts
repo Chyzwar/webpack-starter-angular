@@ -19,7 +19,9 @@ import styles from './search.component.scss';
 @Component({
   selector: "search-component",
   template,
-  styles: [styles],
+  styles: [
+    styles
+  ],
 })
 export class SearchComponent implements OnInit{
   constructor(

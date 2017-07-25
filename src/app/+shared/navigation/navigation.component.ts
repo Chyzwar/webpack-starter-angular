@@ -7,8 +7,10 @@ import styles from './navigation.component.scss';
 
 @Component({
   selector: 'navigation',
-  styles: [styles],
   template,
+  styles: [
+    styles
+  ]
 })
 export class NavigationComponent implements OnInit{
   constructor(

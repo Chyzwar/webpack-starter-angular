@@ -7,8 +7,10 @@ import styles from './footer.component.scss';
 
 @Component({
   selector: 'footer',
-  styles: [styles],
-  template
+  template,
+  styles: [
+    styles
+  ],
 })
 export class FooterComponent implements OnInit{
   constructor(
