@@ -10,7 +10,7 @@ const commonConfig = require('./common');
  * @see
  */
 module.exports = (env) => {
-  return webpackMerge(commonConfig, {
+  return webpackMerge(commonConfig(env), {
     devtool: 'inline-source-map',
     /**
      * Build folder is in memmory
@@ -21,7 +21,7 @@ module.exports = (env) => {
      * Add aditional entry for zone debugging
      */
     entry: {
-      debug: './src/debug.zone.ts',
+      debug: './src/debugging.ts',
     },
     /**
      * DevServer Configuration

@@ -7,7 +7,7 @@ const path = require('path');
  * Merge common config with prod specific configuration
  */
  module.exports = (env) => {
-  return webpackMerge(commonConfig, {
+  return webpackMerge(commonConfig(env), {
     /**
      * Disable in-memmory budles/files
      */

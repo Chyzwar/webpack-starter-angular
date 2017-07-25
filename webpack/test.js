@@ -12,7 +12,7 @@ commonConfig.plugins = commonConfig.plugins.slice(0, 1);
  * Merge common config with test specific
  */
 module.exports = (env) => {
-  return webpackMerge(commonConfig, {
+  return webpackMerge(commonConfig(env), {
     /**
      * Webpack is only used as preprocessor,
      * Additionaly adds test shims
