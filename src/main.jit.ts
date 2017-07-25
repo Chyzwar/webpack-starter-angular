@@ -13,7 +13,7 @@ if(NODE_ENV === 'production'){
    * @type {NgModuleRef} modRef
    */
   const disableDebug = (modRef) => {
-    const appRef = modRef.injector.get(ApplicationRef);
+    const appRef = modRef.injector.get(ApplicationRef)
 
     appRef
       .components

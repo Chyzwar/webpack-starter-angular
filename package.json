@@ -34,7 +34,8 @@
     "karma-sourcemap-loader": "0.3.x",
     "karma-webpack": "2.x.x",
     "karma-coverage": "1.x.x",
-    "ts-loader": "*",
+
+
     "tslint-loader": "*",
     "node-sass": "*",
     "raw-loader": "*",
@@ -45,6 +46,8 @@
     "url-loader": "*",
     "file-loader": "*",
     "html-loader": "*",
+    "awesome-typescript-loader": "*",
+
     "webpack": "3.x.x",
     "webpack-merge": "4.x.x",
     "webpack-dev-server": "2.x.x",
@@ -52,6 +55,7 @@
     "copy-webpack-plugin": "4.x.x",
     "ngc-webpack": "3.x.x",
     "extract-text-webpack-plugin": "3.x.x",
+
     "typescript": "2.4.x",
     "tslint": "4.x.x",
     "@types/jasmine": "2.x.x",

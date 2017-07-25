@@ -1,16 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extractCSS  = new ExtractTextPlugin({
-  filename: 'css-extracted.[hash].css'
+  filename: 'css-extract.[hash].css'
 });
 const extractSCSS = new ExtractTextPlugin({
-  filename: 'scss-extracted.[hash].css'
+  filename: 'scss-extract.[hash].css'
 });
 
 
@@ -73,11 +73,8 @@ module.exports = {
     loaders: [
       {
         test: /\.ts?$/,
-        loader: 'ts-loader',
-        query: {
-          transpileOnly: false,
-          sourceMap: true,
-        }
+        exclude: /\.node_modules/,
+        loader: 'awesome-typescript-loader',
       },
       {
         test: /\.component.scss$/,
