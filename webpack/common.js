@@ -16,7 +16,7 @@ const extractSCSS = new ExtractTextPlugin({
 
 
 module.exports = (env = {}) => {
-  const {aot} = env;
+  const {aot = false} = env;
 
   return {
     /**
@@ -77,8 +77,10 @@ module.exports = (env = {}) => {
       loaders: [
         {
           test: /\.ts?$/,
-          exclude: /\.node_modules/,
           loader: 'awesome-typescript-loader',
+          query: {
+            configFileName: 'tsconfig.json'
+          }
         },
         {
           test: /\.component.scss$/,

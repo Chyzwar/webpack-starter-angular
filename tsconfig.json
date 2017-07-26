@@ -19,10 +19,16 @@
   },
   "exclude": [
     "node_modules",
-     "dist"
+     "dist",
+     "**/*.spec.ts",
+     "**/*.aot.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true
+  },
+  "angularCompilerOptions": {
+    "genDir": "./compiled",
+    "skipMetadataEmit": true
   }
 }
