@@ -1,6 +1,6 @@
 import { enableDebugTools, disableDebugTools, platformBrowser} from '@angular/platform-browser';
 import { ApplicationRef, enableProdMode} from '@angular/core';
-import { AppModuleFactory } from '../compiled/src/app/app.module.ngfactory';
+import { AppModuleNgFactory } from '../compiled/src/app/app.module.ngfactory';
 
 let bootstrap: Function;
 
@@ -25,7 +25,7 @@ if(NODE_ENV === 'production'){
     document.removeEventListener('DOMContentLoaded', bootstrap, false);
 
     return platformBrowser()
-      .bootstrapModuleFactory(AppModuleFactory)
+      .bootstrapModuleFactory(AppModuleNgFactory)
       .then(modRef => disableDebug(modRef))
       .then(() => enableProdMode());
   }
@@ -55,7 +55,7 @@ if(NODE_ENV === 'developement'){
     document.removeEventListener('DOMContentLoaded', bootstrap, false);
 
     return platformBrowser()
-      .bootstrapModuleFactory(AppModuleFactory)
+      .bootstrapModuleFactory(AppModuleNgFactory)
       .then(modRef => enableDebug(modRef))
   }
 }

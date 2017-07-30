@@ -12,15 +12,12 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
-import template from "./search.component.html"
-import styles from './search.component.scss';
-
 
 @Component({
   selector: "search-component",
-  template,
-  styles: [
-    styles
+  templateUrl: './search.component.html',
+  styleUrls: [
+    './search.component.scss'
   ],
 })
 export class SearchComponent implements OnInit{

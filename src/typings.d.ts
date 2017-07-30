@@ -21,6 +21,8 @@ declare module "*.json" {
   export default content;
 }
 
+declare const require: Function
+
 /**
  * Add typings for stack trace limit, V8 only
  */

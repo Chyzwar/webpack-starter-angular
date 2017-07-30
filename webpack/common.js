@@ -1,3 +1,5 @@
+"use module";
+
 const path = require('path');
 const webpack = require('webpack');
 const ngcWebpack = require('ngc-webpack');
@@ -16,7 +18,7 @@ const extractSCSS = new ExtractTextPlugin({
 
 
 module.exports = (env = {}) => {
-  const {aot = false} = env;
+  const {aot} = env;
 
   return {
     /**
@@ -77,15 +79,30 @@ module.exports = (env = {}) => {
       loaders: [
         {
           test: /\.ts?$/,
-          loader: 'awesome-typescript-loader',
-          query: {
-            configFileName: 'tsconfig.json'
-          }
+          use: [
+            {
+              loader: 'awesome-typescript-loader',
+              query: {
+                configFileName: 'tsconfig.json',
+              }
+            },
+            {
+              loader: 'ngc-webpack',
+              options: {
+                disable: !aot,
+                genDir: 'compiled',
+              }
+            },
+            {
+              loader: 'angular2-template-loader'
+            }
+          ]
         },
         {
           test: /\.component.scss$/,
           use: [
-            {loader: 'raw-loader'},
+            {loader: 'to-string-loader'},
+            {loader: 'css-loader'},
             {loader: 'sass-loader'}
           ]
         },
@@ -175,10 +192,10 @@ module.exports = (env = {}) => {
        *
        * @see https://github.com/shlomiassaf/ngc-webpack
        */
-      // new ngcWebpack.NgcWebpackPlugin({
-      //   disabled: aot,
-      //   tsConfig: path.resolve('./tsconfig.json')
-      // }),
+      new ngcWebpack.NgcWebpackPlugin({
+        disabled: !aot,
+        tsConfig: path.resolve('./tsconfig.aot.json')
+      }),
       /**
       * Plugin: CopyWebpackPlugin
       * Description: Copy files and directories in webpack.
