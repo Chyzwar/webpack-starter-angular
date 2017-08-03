@@ -8,11 +8,11 @@
   },
   "main": "",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack/dev",
-    "start:build": "webpack-dev-server --config ./webpack/prod",
+    "start:jit": "webpack-dev-server --config ./webpack/jit",
+    "start:aot": "webpack-dev-server --config ./webpack/aot",
 
-    "build": "webpack --config ./webpack/prod",
-    "build:aot": "webpack --config ./webpack/prod --env.aot",
+    "build:jit": "webpack --config ./webpack/jit",
+    "build:aot": "webpack --config ./webpack/prod",
 
     "lint": "tslint -c tslint.json src/",
     "test": "npm run test:unit && npm run test:e2e",
@@ -79,6 +79,7 @@
     "@angular/platform-browser": "4.3.x",
     "@angular/platform-browser-dynamic": "4.3.x",
     "@angular/compiler-cli": "4.3.x",
+
 
     "lodash": "4.x.x",
     "moment": "2.x.x",
