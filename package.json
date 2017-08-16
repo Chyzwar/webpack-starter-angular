@@ -71,6 +71,7 @@
   },
   "dependencies": {
     "@angular/core": "4.x.x",
+    "@angular/cli": "*",
     "@angular/animations": "4.x.x",
     "@angular/router": "4.x.x",
     "@angular/common": "4.x.x",

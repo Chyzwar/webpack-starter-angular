@@ -11,7 +11,7 @@ const prodConfig = require('./prod');
 module.exports = (env = {}) => {
   const jitConfig = {
     /**
-     * Jit Application entry
+     * Entry points
      */
     entry: {
       /**

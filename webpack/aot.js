@@ -5,7 +5,6 @@ const path = require('path');
 const devConfig = require('./dev');
 const prodConfig = require('./prod');
 const ngcWebpack = require('ngc-webpack');
-
 /**
  * Merge common config with prod specific configuration
  */
