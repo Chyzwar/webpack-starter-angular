@@ -2,55 +2,51 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./common');
-
+const devConfig = require('./dev');
+const prodConfig = require('./prod');
 
 /**
  * Merge common config with development specific
  *
  * @see
  */
-module.exports = (env) => {
-  return webpackMerge(commonConfig(env), {
-    devtool: 'inline-source-map',
+module.exports = (env = {}) => {
+  const jitConfig = {
     /**
-     * Build folder is in memmory
-     *
-     */
-    cache: true,
-    /**
-     * Add aditional entry for zone debugging
+     * Jit Application entry
      */
     entry: {
-      debug: './src/debugging.ts',
-    },
-    /**
-     * DevServer Configuration
-     *
-     * @see https://webpack.js.org/configuration/dev-server/#devserver
-     */
-    devServer: {
-      contentBase: path.resolve('build'),
-      compress: true,
-      port: 3000,
-      hot: true,
-      inline: true
-    },
-    plugins: [
       /**
-       * Plugin: HotModuleReplacementPlugin
-       *
-       * @see https://webpack.js.org/plugins/hot-module-replacement-plugin/
+       * Angualar application
        */
-      new webpack.HotModuleReplacementPlugin(),
-      /**
-       * Plugin: DefinePlugin, strigify in source code
-       *
-       * NOTE: when adding more properties make sure you include them in src/typings.d.ts
-       * @see https://webpack.js.org/plugins/define-plugin/
-       */
-      new webpack.DefinePlugin({
-        NODE_ENV: JSON.stringify("development"),
-      }),
-    ],
-  });
+      main: './src/main.jit.ts'
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.ts?$/,
+          use: [
+            {
+              loader: 'awesome-typescript-loader',
+              query: {
+                configFileName: 'tsconfig.jit.json',
+              }
+            },
+            {
+              loader: 'angular2-template-loader'
+            }
+          ]
+        },
+      ]
+    },
+  };
+
+  if(env.dev){
+    return webpackMerge(commonConfig(env), jitConfig, devConfig(env));
+  }
+  if(env.prod){
+    return webpackMerge(commonConfig(env), jitConfig, prodConfig(env));
+  }
+
+  return webpackMerge(commonConfig(env), jitConfig);
 };

@@ -18,8 +18,6 @@ const extractSCSS = new ExtractTextPlugin({
 
 
 module.exports = (env = {}) => {
-  const {aot} = env;
-
   return {
     /**
      * The point or points to enter the application.
@@ -31,10 +29,6 @@ module.exports = (env = {}) => {
        * Polyfills for browser and angular
        */
       polyfills: './src/polyfills.ts',
-      /**
-       * Angualar application aot/jit
-       */
-      main: aot ? './src/main.aot.ts' : './src/main.jit.ts'
     },
     output: {
       /**
@@ -77,27 +71,6 @@ module.exports = (env = {}) => {
     target: 'web',
     module: {
       loaders: [
-        {
-          test: /\.ts?$/,
-          use: [
-            {
-              loader: 'awesome-typescript-loader',
-              query: {
-                configFileName: 'tsconfig.json',
-              }
-            },
-            {
-              loader: 'ngc-webpack',
-              options: {
-                disable: !aot,
-                genDir: 'compiled',
-              }
-            },
-            {
-              loader: 'angular2-template-loader'
-            }
-          ]
-        },
         {
           test: /\.component.scss$/,
           use: [
@@ -160,7 +133,10 @@ module.exports = (env = {}) => {
         {
           test: /\.svg$/,
           loader: 'url-loader',
-          query: { limit: 10000, minetype: 'image/svg+xml' },
+          query: {
+            limit: 10000,
+            minetype: 'image/svg+xml'
+          },
         },
       ],
     },
@@ -187,15 +163,6 @@ module.exports = (env = {}) => {
         /angular(\\|\/)core(\\|\/)@angular/,
         path.resolve('src')
       ),
-      /**
-       * Plugin: NgcWebpackPlugin
-       *
-       * @see https://github.com/shlomiassaf/ngc-webpack
-       */
-      new ngcWebpack.NgcWebpackPlugin({
-        disabled: !aot,
-        tsConfig: path.resolve('./tsconfig.aot.json')
-      }),
       /**
       * Plugin: CopyWebpackPlugin
       * Description: Copy files and directories in webpack.

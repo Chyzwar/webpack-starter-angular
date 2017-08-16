@@ -8,8 +8,11 @@
   },
   "main": "",
   "scripts": {
+    "start": "npm run start:jit:dev",
     "start:jit": "webpack-dev-server --config ./webpack/jit",
+    "start:jit:dev": "webpack-dev-server --config ./webpack/jit --env.dev",
     "start:aot": "webpack-dev-server --config ./webpack/aot",
+    "start:aot:prod": "webpack-dev-server --config ./webpack/jit --env.prod",
 
     "build:jit": "webpack --config ./webpack/jit",
     "build:aot": "webpack --config ./webpack/prod",
@@ -67,18 +70,18 @@
     "@types/hammerjs": "^2.x.x"
   },
   "dependencies": {
-    "@angular/core": "4.3.x",
-    "@angular/animations": "4.3.x",
-    "@angular/router": "4.3.x",
-    "@angular/common": "4.3.x",
-    "@angular/compiler": "4.3.x",
-    "@angular/forms": "4.3.x",
-    "@angular/http": "4.3.x",
+    "@angular/core": "4.x.x",
+    "@angular/animations": "4.x.x",
+    "@angular/router": "4.x.x",
+    "@angular/common": "4.x.x",
+    "@angular/compiler": "4.x.x",
+    "@angular/forms": "4.x.x",
+    "@angular/http": "4.x.x",
     "@angular/material": "*",
     "@angular/cdk": "*",
-    "@angular/platform-browser": "4.3.x",
-    "@angular/platform-browser-dynamic": "4.3.x",
-    "@angular/compiler-cli": "4.3.x",
+    "@angular/platform-browser": "4.x.x",
+    "@angular/platform-browser-dynamic": "4.x.x",
+    "@angular/compiler-cli": "4.x.x",
 
 
     "lodash": "4.x.x",
