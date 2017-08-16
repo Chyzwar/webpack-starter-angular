@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./common');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 /**
  * Merge common config with development specific

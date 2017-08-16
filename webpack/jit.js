@@ -6,9 +6,7 @@ const devConfig = require('./dev');
 const prodConfig = require('./prod');
 
 /**
- * Merge common config with development specific
- *
- * @see
+ * Merge common config with jitConfig and envirotment specific config
  */
 module.exports = (env = {}) => {
   const jitConfig = {
