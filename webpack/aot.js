@@ -24,7 +24,7 @@ const ngcWebpack = require('ngc-webpack');
             {
               loader: 'ngc-webpack',
               options: {
-                genDir: 'compiled',
+                disable: false,
               }
             },
             {
@@ -46,6 +46,7 @@ const ngcWebpack = require('ngc-webpack');
        * @see https://github.com/shlomiassaf/ngc-webpack
        */
       new ngcWebpack.NgcWebpackPlugin({
+        disable: false,
         tsConfig: path.resolve('./tsconfig.aot.json')
       }),
     ]
