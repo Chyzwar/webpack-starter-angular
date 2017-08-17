@@ -11,7 +11,7 @@ module.exports = (env) => {
   return {
     devtool: 'source-map',
     /**
-     * Build folder is in memmory
+     * Build folder not in memmory
      */
     cache: false,
     plugins: [

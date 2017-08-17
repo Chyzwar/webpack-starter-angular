@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": ">= 4.2.1",
+    "node": ">= 6.9.1",
     "npm": ">= 3"
   },
   "main": "",
@@ -14,8 +14,11 @@
     "start:aot": "webpack-dev-server --config ./webpack/aot",
     "start:aot:prod": "webpack-dev-server --config ./webpack/jit --env.prod",
 
+    "build": "npm run build:aot:prod",
     "build:jit": "webpack --config ./webpack/jit",
-    "build:aot": "webpack --config ./webpack/prod",
+    "build:jit:prod": "webpack --config ./webpack/jit --env.prod",
+    "build:aot": "webpack --config ./webpack/aot",
+    "build:aot:prod": "webpack --config ./webpack/aot --env.prod",
 
     "lint": "tslint -c tslint.json src/",
     "test": "npm run test:unit && npm run test:e2e",
