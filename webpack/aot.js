@@ -10,6 +10,15 @@ const ngcWebpack = require('ngc-webpack');
  */
  module.exports = (env = {}) => {
   const aotConfig = {
+    /**
+     * Entry point
+     */
+    entry: {
+      /**
+       * Angualar application AOT
+       */
+      main: './src/main.aot.ts'
+    },
     module: {
       loaders: [
         {
@@ -39,7 +48,7 @@ const ngcWebpack = require('ngc-webpack');
      *
      * @see https://webpack.js.org/configuration/plugins/#plugins
      */
-     plugins: [
+    plugins: [
       /**
        * Plugin: NgcWebpackPlugin
        *
